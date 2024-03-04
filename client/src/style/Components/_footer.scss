@@ -1,0 +1,80 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    .top-content{
+        display: flex;
+        background-color: $purple;
+        padding: 50px 100px 50px 100px;
+        justify-content: space-between;
+        .content{
+            display: flex;
+            gap: 130px;
+            .description{
+                max-width: 215px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                color: $white;
+                .bold{
+                    font-size: $bt-font-size;
+                }
+            }
+            .contact{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                color: $white;
+                .bold{
+                    font-size: $bt-font-size;
+                }
+                .link-conteneur{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+           
+                }
+            }
+            .plan{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                color: $white;
+                .bold{
+                    font-size: $bt-font-size;
+                }
+                .link-conteneur{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    p{
+                        cursor: pointer;
+                    }
+                    p:hover{
+                        color: $dark-blue;
+                    }
+                }
+            }
+        }
+        .img-content{
+            max-width: 140px;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .bottom-content{
+        padding: 5px 100px 5px 100px;
+        background-color: $dark-blue;
+        display: flex;
+        gap: 15px;
+        justify-content: flex-end;
+        p{
+            font-size: $lt-font-size;
+            color: $white;
+            cursor: pointer;
+        }
+        p:hover{
+            color: $purple;
+        }
+    }
+}

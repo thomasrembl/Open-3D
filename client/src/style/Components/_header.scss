@@ -1,0 +1,34 @@
+header{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    background-color: $dark-blue;
+    padding: 20px 100px 20px 100px;
+    .logo{
+        max-width: 220px;
+        img{
+            width: 100%;
+        }
+    }
+    .content-container{
+        display: flex;
+        align-items: center;
+        gap: 100px;
+        .links{
+            display: flex;
+            align-items: center;
+            color: $white;
+            gap: 65px;
+            p:hover{
+                color: $clear-purple;
+                cursor: pointer;
+            }
+        }
+        .buttons-container{
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+    }
+
+}

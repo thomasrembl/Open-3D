@@ -1,0 +1,270 @@
+.first-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark-blue;
+    height: 88vh;
+    width: 100%;
+    gap: 100px;
+    .container{
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .img-container{
+            max-width: 780px;
+            
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .content{
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        h1{
+            color: $purple;
+            span{
+                background-color: $blue ;
+                padding: 0 20px 0 20px;
+                border-radius: 100px;
+
+            }
+        }
+        .text{
+            color: $white;
+            font-size: $bt-font-size;
+            max-width: 700px;
+        }
+        .button-container{
+            display: flex;
+
+            gap: 20px;
+        }
+    }
+}
+
+.second-section{
+    display: flex;
+    padding: 50px ;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    justify-content: center;
+    background-color: $grey;
+    h2{
+        color: $purple;
+        .italic{
+            color: $white;
+            background-color: $blue;
+            padding: 0 20px 0 20px;
+            border-radius: 100px;
+        }
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 35px;
+        grid-row-gap: 35px;
+        .first-grid {
+             grid-area: 1 / 1 / 3 / 2;
+             height: 735px;
+             width: 400px;
+             background-color: $purple;
+             border-radius: 20px;
+             padding: 80px 50px 80px 50px;
+             .img-container{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                 img{
+                     width: 100%;
+                    }
+                }
+            }
+        .second-grid { 
+            grid-area: 1 / 2 / 2 / 4; 
+
+            width: 835px;
+            background-color: $light-purple;
+            border-radius: 20px;
+            padding: 50px 80px 50px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            h3{
+                color:$purple;
+                .regular-italic{
+                    color: $blue;
+                }
+            }
+        }
+        .third-grid { 
+            grid-area: 2 / 2 / 3 / 3;
+
+            width: 400px;
+            background-color: $clear-purple;
+            border-radius: 20px;
+            padding: 40px 45px 40px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            h4{
+                color: $blue;
+            }
+            p{
+                font-size: $bt-font-size;
+                color: $blue;
+            }
+            .link{
+                p{
+
+                    cursor: pointer;
+                }
+                p:hover{
+                    color: $light-purple;
+                }
+            }
+        }
+        .fourth-grid { 
+            grid-area: 2 / 3 / 3 / 4; 
+
+            width: 400px;
+            background-color: $blue;
+            border-radius: 20px;
+            padding: 40px 45px 40px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            h4{
+                color: $white;
+            }
+            p{
+                font-size: $bt-font-size;
+                color: $white;
+            }
+            .link{
+                p{
+
+                    cursor: pointer;
+                }
+                p:hover{
+                    color: $purple;
+                }
+            }
+        }
+    }       
+}
+
+.third-section{
+    
+    padding-top: 60px;
+    height: 100vh;
+    background-color: $dark-blue;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .top-content{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+        h2{
+            color: $purple;
+            .italic{
+                border: 6px solid $blue;
+                padding: 3px 20px 3px 20px;
+                border-radius: 100px;
+            }
+        }
+    }
+}
+
+.fourth-section{
+    padding-top: 40px;
+    padding-bottom: 100px;
+    background-color: $dark-blue;
+    .top-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        .img-container{
+            max-width: 90px;
+            img{
+                width: 100%;
+            }
+        }
+        h2{
+            color: $purple;
+            .italic{
+                background-color: $blue;
+                padding: 0 20px 0 20px;
+                border-radius: 100px;
+            }
+        }
+        p{
+            color: $white;
+        }
+    }
+}
+.fifth-section{
+    padding: 0 50px 0 50px;
+    display: flex;
+    height: 100vh;
+    background-color: $grey;
+    align-items: center;
+    justify-content: center;
+
+    h2{
+        color: $purple;
+        span{
+            background-color: $blue;
+            padding: 0 20px 0 20px;
+            border-radius: 100px;
+        }
+    }
+    .left-content{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        max-width: 1015px;
+        .description{
+            max-width: 750px;
+            color: black;
+            font-size: $bt-font-size;
+        }
+        .puce-conteneur{
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            .puce{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                .img-content{
+                    max-width: 45px;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .bold{
+                    font-size: $bt-font-size;
+                }
+            }
+        }
+    }
+
+
+    .right-content{
+        max-width: 690px;
+        img{
+            width: 100%;
+        }
+    }
+}

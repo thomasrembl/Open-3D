@@ -1,0 +1,54 @@
+.full-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $purple;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 22px ;
+    cursor: pointer;
+    width: fit-content;
+    
+        .white{
+            color: $white;
+            cursor: pointer;
+        }
+        .blue{
+            color: $dark-blue;
+            cursor: pointer;
+        }
+    
+}
+.full-button:hover{
+    background-color: $clear-purple;
+}
+.stroke-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    border-color: $purple;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 22px ;
+    cursor: pointer;
+    width: fit-content;
+
+    
+    .white{
+        color: $white;
+        cursor: pointer;
+    }
+    .blue{
+        color: $dark-blue;
+        cursor: pointer;
+    }
+    
+}
+.stroke-button:hover{
+    border: 2px solid $clear-purple;
+}

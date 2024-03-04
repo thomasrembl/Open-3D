@@ -1,0 +1,158 @@
+$white : #ffffff;
+$black : #000000;
+$purple : #9D85F2;
+$clear-purple : #D2BBF2;
+$light-purple : #F6F1FC;
+$blue : #5005F2;
+$dark-blue : #182E59;
+$grey : #fefefe;
+
+$green : #17B41D;
+$red : #F40000;
+$blue-admin : #2489FF;
+
+$poppins : "Poppins", sans-serif;
+$lato : "Lato", sans-serif;
+
+$font-style-normal: normal;
+$italic-font-style: italic;
+
+$light-font-weight: 300;
+$regular-font-weight: 400;
+$semi-bold-font-weight: 600;
+$bold-font-weight: 700;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+h1{
+    font-family: $poppins;
+    font-weight: $semi-bold-font-weight;
+    font-size: 96px;
+    .italic{
+        font-style: $italic-font-style;
+    }
+    .regular{
+        font-weight: $regular-font-weight;
+    }
+    .regular-italic{
+        font-style: $italic-font-style;
+        font-weight: $regular-font-weight;
+    }
+    .light{
+        font-weight: $light-font-weight;
+    }
+    .light-italic{
+        font-weight: $light-font-weight;
+        font-style: $italic-font-style;
+    }
+}
+
+h2{
+    font-family: $poppins;
+    font-weight: $semi-bold-font-weight;
+    font-size: 64px;
+    .italic{
+        font-style: $italic-font-style;
+    }
+    .regular{
+        font-weight: $regular-font-weight;
+    }
+    .regular-italic{
+        font-style: $italic-font-style;
+        font-weight: $regular-font-weight;
+    }
+    .light{
+        font-weight: $light-font-weight;
+    }
+    .light-italic{
+        font-weight: $light-font-weight;
+        font-style: $italic-font-style;
+    }
+}
+h3{
+    font-family: $poppins;
+    font-weight: $semi-bold-font-weight;
+    font-size: 42px;
+    .italic{
+        font-style: $italic-font-style;
+    }
+    .regular{
+        font-weight: $regular-font-weight;
+    }
+    .regular-italic{
+        font-style: $italic-font-style;
+        font-weight: $regular-font-weight;
+    }
+    .light{
+        font-weight: $light-font-weight;
+    }
+    .light-italic{
+        font-weight: $light-font-weight;
+        font-style: $italic-font-style;
+    }
+}
+h4{
+    font-family: $poppins;
+    font-weight: $semi-bold-font-weight;
+    font-size: 36px;
+    .italic{
+        font-style: $italic-font-style;
+    }
+    .regular{
+        font-weight: $regular-font-weight;
+    }
+    .regular-italic{
+        font-style: $italic-font-style;
+        font-weight: $regular-font-weight;
+    }
+    .light{
+        font-weight: $light-font-weight;
+    }
+    .light-italic{
+        font-weight: $light-font-weight;
+        font-style: $italic-font-style;
+    }
+}
+
+$vbt-font-size : 26px;
+$bt-font-size : 20px;
+$nt-font-size : 16px;
+$lt-font-size : 12px;
+
+p{
+    font-family: $lato;
+    font-weight: $regular-font-weight;
+    font-size: $nt-font-size;
+    .italic{
+        font-style: $italic-font-style;
+    }
+    .bold{
+        font-weight: $bold-font-weight;
+    }
+    .bold-italic{
+        font-style: $italic-font-style;
+        font-weight: $bold-font-weight;
+    }
+    .light{
+        font-weight: $light-font-weight;
+    }
+    .light-italic{
+        font-weight: $light-font-weight;
+        font-style: $italic-font-style;
+    }
+}
+
+body{
+    background-color: $dark-blue;
+}
+
