@@ -7,6 +7,7 @@ import Contact from "../../pages/Contact";
 import Politique from "../../pages/Politique";
 import Mention from "../../pages/Mention";
 import Log from "../../pages/Log";
+import Account from "../../pages/Account";
 
 const index = () => {
   return (
@@ -17,6 +18,7 @@ const index = () => {
         <Route path="/cours" element={<Lessons />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/connexion" element={<Log />} />
+        <Route path="/mon-compte" element={<Account />} />
         <Route path="/mentions-legale" element={<Mention />} />
         <Route path="/politique-de-confidentialite" element={<Politique />} />
       </Routes>

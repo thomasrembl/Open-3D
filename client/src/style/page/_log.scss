@@ -1,0 +1,21 @@
+.log-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 130px;
+    margin-right: 130px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    justify-content: space-between;
+    .left-part{
+        .img-container{
+            max-width: 650px;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .right-part{
+        flex-basis: 30%;
+    }
+}

@@ -1,0 +1,61 @@
+.login-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 50px;
+    .top-bar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p:hover{
+            scale: 1.1;
+        }
+        .active{
+            font-weight: $bold-font-weight;
+            text-decoration: underline;
+
+        }
+        p{
+            color: $purple;
+            font-size: $bt-font-size;
+            
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        
+        .checkbox{
+            .italic{
+                color: $purple;
+                font-size: $lt-font-size;
+            }
+        }
+
+        .validate{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .submit-btn{
+                width: 100%;
+                background-color: $blue;
+                padding: 10px 0 10px 0;
+                font-size: $bt-font-size;
+                color: $clear-purple;
+                cursor: pointer;
+            }
+            .submit-btn:hover{
+                scale: 1.1;
+            }
+            .italic{
+                color: $purple;
+                cursor: pointer;
+                font-size: $lt-font-size;
+            }
+            .italic:hover{
+                color: $clear-purple;
+            }
+        }
+    }
+}

@@ -18,15 +18,21 @@ const Header = () => {
   const goContact = () => {
     navigate("/contact");
   };
+  const goLog = () => {
+    navigate("/connexion");
+  };
+  const goAccount = () => {
+    navigate("/mon-compte");
+  };
 
-  const connected = false;
-
+  const connected = true;
   return (
     <header>
       <img
         className="logo"
         src="./img/logo/logo-long-white.png"
         alt="long logo"
+        onClick={goHome}
       />
       <div className="content-container">
         <div className="links">
@@ -37,11 +43,17 @@ const Header = () => {
         </div>
         <div className="buttons-container">
           {connected ? (
-            <FullButton content="Mon Compte" color={1} />
+            <div onClick={goAccount}>
+              <FullButton content="Mon Compte" color={1} />
+            </div>
           ) : (
             <>
-              <FullButton content="Connexion" color={1} />
-              <StrokeButton content="Créer mon Compte" color={1} />
+              <div onClick={goLog}>
+                <FullButton content="Connexion" color={1} />
+              </div>
+              <div onClick={goLog}>
+                <StrokeButton content="Créer mon Compte" color={1} />
+              </div>
             </>
           )}
         </div>
