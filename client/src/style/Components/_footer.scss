@@ -3,7 +3,7 @@ footer{
     flex-direction: column;
     .top-content{
         display: flex;
-        background-color: $purple;
+        background-color: $black;
         padding: 50px 100px 50px 100px;
         justify-content: space-between;
         .content{
@@ -50,7 +50,7 @@ footer{
                         cursor: pointer;
                     }
                     p:hover{
-                        color: $dark-blue;
+                        color: $main-color-accent;
                     }
                 }
             }
@@ -64,7 +64,7 @@ footer{
     }
     .bottom-content{
         padding: 5px 100px 5px 100px;
-        background-color: $dark-blue;
+        background-color: $black;
         display: flex;
         gap: 15px;
         justify-content: flex-end;
@@ -74,7 +74,7 @@ footer{
             cursor: pointer;
         }
         p:hover{
-            color: $purple;
+            color: $main-color-accent;
         }
     }
 }

@@ -2,7 +2,7 @@
     display: flex;
     gap: 30px;
     align-items: center;
-    border: 3px solid $clear-purple;
+    border: 3px solid $main-color;
     border-radius: 20px;
     padding: 6px;
     width: fit-content;
@@ -16,18 +16,18 @@
         }
     }
     .filter:hover{
-        background-color: $light-purple;
+        background-color: $main-color-light;
         border-radius: 10px;
         p{
-            color: $blue;
+            color: $main-color;
         }
     }
     .active{
-        background-color: $blue;
+        background-color: $main-color;
         border-radius: 10px;
     }
     .active:hover{
-        background-color: $blue; 
+        background-color: $main-color; 
         p{
             color: $white;
         }

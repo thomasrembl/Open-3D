@@ -16,7 +16,7 @@
 
         }
         p{
-            color: $purple;
+            color: $second-color;
             font-size: $bt-font-size;
             
         }
@@ -28,7 +28,7 @@
         
         .checkbox{
             .italic{
-                color: $purple;
+                color: $second-color;
                 font-size: $lt-font-size;
             }
         }
@@ -39,22 +39,22 @@
             gap: 10px;
             .submit-btn{
                 width: 100%;
-                background-color: $blue;
+                background-color: $main-color;
                 padding: 10px 0 10px 0;
                 font-size: $bt-font-size;
-                color: $clear-purple;
+                color: $white;
                 cursor: pointer;
             }
             .submit-btn:hover{
                 scale: 1.1;
             }
             .italic{
-                color: $purple;
+                color: $second-color;
                 cursor: pointer;
                 font-size: $lt-font-size;
             }
             .italic:hover{
-                color: $clear-purple;
+                color: $second-color-light;
             }
         }
     }

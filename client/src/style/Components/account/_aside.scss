@@ -1,7 +1,7 @@
 .account-aside{
     padding: 50px 100px 50px 100px;
     height: 100%;
-    background-color: $clear-purple;
+    background-color: $black;
     width: 25%;
     display: flex;
     flex-direction: column;
@@ -14,25 +14,25 @@
             width: fit-content;
             p{
                 font-size: $bt-font-size;
-                color: $black;
+                color: $white;
                 cursor: pointer;
             }
             p:hover{
-                color: $blue;
+                color: $main-color-accent;
             }
         }
         .active{
             display: flex;
                 flex-direction: column;
             p{
-                color: $blue;
+                color: $main-color;
                 font-weight: $bold-font-weight;
             }
 
                 
                 .a-line{
                     content: "";
-                    border-bottom: 2px solid $blue;
+                    border-bottom: 2px solid $main-color;
                     width: 100%;
                 }
 
@@ -46,16 +46,12 @@
             cursor: pointer;
 
             p{
-                color: $black;
+                color: $white;
                 font-size: $bt-font-size;
             }
-            .img-container{
-                max-width: 24px;
-                
-                img{
-                    width: 100%;
-                }
-                
+            svg{
+                color: $main-color;
+                font-size: 24px;
             }
         }
     }

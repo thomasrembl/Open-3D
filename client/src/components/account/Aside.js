@@ -1,5 +1,6 @@
 // Aside.jsx
 import React from "react";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const Aside = ({ onSelectCategory, initialSelectedCategory }) => {
   const handleClick = (category) => {
@@ -52,12 +53,7 @@ const Aside = ({ onSelectCategory, initialSelectedCategory }) => {
       </div>
       <div className="bottom-content">
         <div className="logout">
-          <div className="img-container">
-            <img
-              src="./img/icon/react-icons/fa/react-icons/fa/FaSignOutAlt.png"
-              alt="logout-icon"
-            />
-          </div>
+          <FaSignOutAlt />
           <p>Déconnexion</p>
         </div>
       </div>

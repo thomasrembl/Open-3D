@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import FilterBar from "../components/lesson/FilterBar";
 import Avis from "../components/Avis";
 import Footer from "../components/Footer";
-
+import { FaCheckCircle } from "react-icons/fa";
 const Home = () => {
   const navigate = useNavigate();
   const goLesson = () => {
@@ -125,34 +125,19 @@ const Home = () => {
           </p>
           <div className="puce-conteneur">
             <div className="puce">
-              <div className="img-content">
-                <img
-                  src="./img/icon/react-icons/fa/FaCheckCircle.png"
-                  alt="puce"
-                />
-              </div>
+              <FaCheckCircle />
               <p>
                 <span className="bold">Créer son Compte</span>
               </p>
             </div>
             <div className="puce">
-              <div className="img-content">
-                <img
-                  src="./img/icon/react-icons/fa/FaCheckCircle.png"
-                  alt="puce"
-                />
-              </div>
+              <FaCheckCircle />
               <p>
                 <span className="bold">Choisir son cours</span>
               </p>
             </div>
             <div className="puce">
-              <div className="img-content">
-                <img
-                  src="./img/icon/react-icons/fa/FaCheckCircle.png"
-                  alt="puce"
-                />
-              </div>
+              <FaCheckCircle />
               <p>
                 <span className="bold">Apprendre ne réalisant des projets</span>
               </p>

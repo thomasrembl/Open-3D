@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $dark-blue;
+    background-color: $black;
     height: 88vh;
     width: 100%;
     gap: 100px;
@@ -26,9 +26,9 @@
         flex-direction: column;
         gap: 40px;
         h1{
-            color: $purple;
+            color: $white;
             span{
-                background-color: $blue ;
+                background-color: $main-color ;
                 padding: 0 20px 0 20px;
                 border-radius: 100px;
 
@@ -56,10 +56,10 @@
     justify-content: center;
     background-color: $grey;
     h2{
-        color: $purple;
+        color: $main-color;
         .italic{
             color: $white;
-            background-color: $blue;
+            background-color: $main-color;
             padding: 0 20px 0 20px;
             border-radius: 100px;
         }
@@ -74,7 +74,7 @@
              grid-area: 1 / 1 / 3 / 2;
              height: 735px;
              width: 400px;
-             background-color: $purple;
+             background-color: $main-color-dark;
              border-radius: 20px;
              padding: 80px 50px 80px 50px;
              .img-container{
@@ -91,16 +91,16 @@
             grid-area: 1 / 2 / 2 / 4; 
 
             width: 835px;
-            background-color: $light-purple;
+            background-color: $main-color-light;
             border-radius: 20px;
             padding: 50px 80px 50px 80px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             h3{
-                color:$purple;
+                color:$main-color-accent;
                 .regular-italic{
-                    color: $blue;
+                    color: $main-color;
                 }
             }
         }
@@ -108,18 +108,18 @@
             grid-area: 2 / 2 / 3 / 3;
 
             width: 400px;
-            background-color: $clear-purple;
+            background-color: $main-color-accent;
             border-radius: 20px;
             padding: 40px 45px 40px 45px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             h4{
-                color: $blue;
+                color: $main-color-light;
             }
             p{
                 font-size: $bt-font-size;
-                color: $blue;
+                color: $main-color-light;
             }
             .link{
                 p{
@@ -127,7 +127,7 @@
                     cursor: pointer;
                 }
                 p:hover{
-                    color: $light-purple;
+                    color: $second-color;
                 }
             }
         }
@@ -135,7 +135,7 @@
             grid-area: 2 / 3 / 3 / 4; 
 
             width: 400px;
-            background-color: $blue;
+            background-color: $main-color;
             border-radius: 20px;
             padding: 40px 45px 40px 45px;
             display: flex;
@@ -154,7 +154,7 @@
                     cursor: pointer;
                 }
                 p:hover{
-                    color: $purple;
+                    color: $second-color;
                 }
             }
         }
@@ -165,7 +165,7 @@
     
     padding-top: 60px;
     height: 100vh;
-    background-color: $dark-blue;
+    background-color: $black;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -175,9 +175,9 @@
         gap: 50px;
         align-items: center;
         h2{
-            color: $purple;
+            color: $white;
             .italic{
-                border: 6px solid $blue;
+                border: 6px solid $main-color;
                 padding: 3px 20px 3px 20px;
                 border-radius: 100px;
             }
@@ -188,7 +188,7 @@
 .fourth-section{
     padding-top: 40px;
     padding-bottom: 100px;
-    background-color: $dark-blue;
+    background-color: $black;
     .top-content{
         display: flex;
         flex-direction: column;
@@ -201,9 +201,9 @@
             }
         }
         h2{
-            color: $purple;
+            color: $white;
             .italic{
-                background-color: $blue;
+                background-color: $main-color;
                 padding: 0 20px 0 20px;
                 border-radius: 100px;
             }
@@ -222,9 +222,10 @@
     justify-content: center;
 
     h2{
-        color: $purple;
+        color: $main-color;
         span{
-            background-color: $blue;
+            background-color: $main-color;
+            color: $white;
             padding: 0 20px 0 20px;
             border-radius: 100px;
         }
@@ -236,7 +237,7 @@
         max-width: 1015px;
         .description{
             max-width: 750px;
-            color: black;
+            color: $black;
             font-size: $bt-font-size;
         }
         .puce-conteneur{
@@ -247,11 +248,9 @@
                 display: flex;
                 align-items: center;
                 gap: 20px;
-                .img-content{
-                    max-width: 45px;
-                    img{
-                        width: 100%;
-                    }
+                svg{
+                    font-size: 45px;
+                    color: $main-color;
                 }
                 .bold{
                     font-size: $bt-font-size;

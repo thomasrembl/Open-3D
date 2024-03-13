@@ -1,15 +1,112 @@
-$white : #ffffff;
-$black : #000000;
-$purple : #9D85F2;
-$clear-purple : #D2BBF2;
-$light-purple : #F6F1FC;
-$blue : #5005F2;
-$dark-blue : #182E59;
-$grey : #fefefe;
+/* colors */
 
-$green : #17B41D;
-$red : #F40000;
-$blue-admin : #2489FF;
+$apple-50: #f0fdf0;
+$apple-100: #dcfcdc;
+$apple-200: #bbf7bc;
+$apple-300: #85f089;
+$apple-400: #49df4e;
+$apple-500: #21c627;
+$apple-600: #17b41d;
+$apple-700: #148119;
+$apple-800: #156619;
+$apple-900: #145318;
+$apple-950: #052e08;
+
+$chetwode-blue-50: #f5f4fe;
+$chetwode-blue-100: #edeafd;
+$chetwode-blue-200: #ded8fc;
+$chetwode-blue-300: #c5b9f9;
+$chetwode-blue-400: #9d85f2;
+$chetwode-blue-500: #8b65ed;
+$chetwode-blue-600: #7a45e2;
+$chetwode-blue-700: #6a33ce;
+$chetwode-blue-800: #592aad;
+$chetwode-blue-900: #4b248e;
+$chetwode-blue-950: #2d1560;
+
+$persian-blue-50: #eaf5ff;
+$persian-blue-100: #d9ebff;
+$persian-blue-200: #bbdaff;
+$persian-blue-300: #92c0ff;
+$persian-blue-400: #6798ff;
+$persian-blue-500: #4472ff;
+$persian-blue-600: #2447ff;
+$persian-blue-700: #1938e9;
+$persian-blue-800: #1833c2;
+$persian-blue-900: #1c3293;
+$persian-blue-950: #111c55;
+
+$red-50: #fff0f0;
+$red-100: #ffdddd;
+$red-200: #ffc0c0;
+$red-300: #ff9494;
+$red-400: #ff5757;
+$red-500: #ff2323;
+$red-600: #f40000;
+$red-700: #d70000;
+$red-800: #b10303;
+$red-900: #920a0a;
+$red-950: #500000;
+
+$white-50: #ffffff;
+$white-100: #efefef;
+$white-200: #dcdcdc;
+$white-300: #bdbdbd;
+$white-400: #989898;
+$white-500: #7c7c7c;
+$white-600: #656565;
+$white-700: #525252;
+$white-800: #464646;
+$white-900: #3d3d3d;
+$white-950: #292929;
+
+$woodsmoke-50: #f7f7f8;
+$woodsmoke-100: #efeef0;
+$woodsmoke-200: #dbdadd;
+$woodsmoke-300: #bcb9c0;
+$woodsmoke-400: #97939d;
+$woodsmoke-500: #7b7681;
+$woodsmoke-600: #646069;
+$woodsmoke-700: #524e56;
+$woodsmoke-800: #464349;
+$woodsmoke-900: #3c3b3f;
+$woodsmoke-950: #1a191b;
+
+$yellow-orange-50: #fff8eb;
+$yellow-orange-100: #fde9c8;
+$yellow-orange-200: #fbd38c;
+$yellow-orange-300: #f8ae3e;
+$yellow-orange-400: #f79b28;
+$yellow-orange-500: #f1780f;
+$yellow-orange-600: #d5560a;
+$yellow-orange-700: #b1380c;
+$yellow-orange-800: #8f2c11;
+$yellow-orange-900: #762511;
+$yellow-orange-950: #441004;
+
+
+/* tokern */
+$white: $white-50;
+$grey: $woodsmoke-50;
+$black: $woodsmoke-950;
+$black-40: #00000066;
+
+$main-color-dark: $persian-blue-950;
+$main-color: $persian-blue-800;
+$main-color-accent: $persian-blue-500;
+$main-color-light: $persian-blue-100;
+
+$second-color-dark: $chetwode-blue-900;
+$second-color: $chetwode-blue-400;
+$second-color-accent: $chetwode-blue-300;
+$second-color-light: $chetwode-blue-100;
+
+$blue-admin: $persian-blue-400;
+$orange-admin: $yellow-orange-300;
+$red: $red-600;
+$green: $apple-600;
+
+/* Font */ 
 
 $poppins : "Poppins", sans-serif;
 $lato : "Lato", sans-serif;
@@ -21,6 +118,8 @@ $light-font-weight: 300;
 $regular-font-weight: 400;
 $semi-bold-font-weight: 600;
 $bold-font-weight: 700;
+
+
 
 *{
     box-sizing: border-box;
@@ -153,7 +252,7 @@ p{
 }
 
 body{
-    background-color: $dark-blue;
+    background-color: $black;
 }
 input, textarea{
     font-family: $lato ;
@@ -192,9 +291,9 @@ input, textarea{
   left: 0;
   height: 1.25rem;
   width: 1.25rem;
-  background: $light-purple;
+  background: $main-color-light;
   transition: background 250ms;
-  border: 2px solid $purple;
+  border: 2px solid $main-color;
   border-radius: 0.2rem;
 }
 
@@ -204,9 +303,9 @@ input, textarea{
   left: 0;
   height: 1.25rem;
   width: 1.25rem;
-  background: $light-purple;
+  background: $main-color-light;
   transition: background 250ms;
-  border: 2px solid $purple;
+  border: 2px solid $main-color;
   border-radius: 3rem;
 }
 
@@ -247,18 +346,18 @@ input, textarea{
 
 .b-contain:hover input[type="checkbox"]:not([disabled]) ~ .b-input,
 .b-contain input[type="checkbox"]:focus ~ .b-input {
-  background: $purple;
-  border-color: $purple;
+  background: $main-color;
+  border-color: $main-color;
 }
 
 
 .b-contain input:focus ~ .b-input {
-  box-shadow: 0 0 0 2px $clear-purple;
+  box-shadow: 0 0 0 2px $main-color-light;
 }
 
 .b-contain input[type="checkbox"]:checked ~ .b-input {
-  background: $clear-purple;
-  border-color: $purple;
+  background: $main-color-light;
+  border-color: $main-color;
 }
 
 
@@ -275,8 +374,8 @@ input, textarea{
 
 .b-contain:hover input[type="checkbox"]:not([disabled]):checked ~ .b-input,
 .b-contain input[type="checkbox"]:checked:focus ~ .b-input {
-  background: $purple;
-  border-color: $purple;
+  background: $main-color;
+  border-color: $main-color;
 }
 
 
@@ -287,30 +386,30 @@ input, textarea{
     gap: 20px;
     .line{
         content: "";
-        border-bottom: 2px solid $purple;
+        border-bottom: 2px solid $second-color;
     }
     .field{
         background: transparent;
         font-size: $bt-font-size;
     }
     .field::placeholder{
-        color: $clear-purple;
+        color: $second-color-light;
     }
     .field:focus{
         font-size: $nt-font-size;
 
     }
     input[type=email]{
-        color: $purple;
+        color: $second-color;
     }
     input[type=text]{
-        color: $purple;
+        color: $second-color;
     }
     input[type=password]{
-        color: $purple;
+        color: $second-color;
     }
     textarea{
-        color: $purple;
+        color: $second-color;
     }
 }
 
@@ -318,13 +417,14 @@ input, textarea{
     display: flex;
     justify-content: space-between;
     padding: 2px 20px 2px 20px;
-    background-color: $purple;
+    background-color: $main-color;
     position: absolute;
     width: 100%;
     cursor: pointer;
     p{
         text-align: center;
         font-size: $lt-font-size;
+        color: $white;
     }
 }
 

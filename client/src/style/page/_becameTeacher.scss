@@ -6,10 +6,10 @@
     gap: 80px;
     h1{
         text-align: center;
-        color: $purple;
+        color: $white;
         span{
-            color: $clear-purple;
-            background-color: $blue;
+
+            background-color: $main-color;
             padding: 2px 40px 2px 40px;
             border-radius: 100px;
         }
@@ -17,7 +17,7 @@
     p{
         text-align: center;
         font-size: $bt-font-size;
-        color: $clear-purple;
+        color: $white;
     }
     form{
         
@@ -29,21 +29,21 @@
 
             
             .line{
-                border-bottom: 2px solid $blue;
+                border-bottom: 2px solid $main-color;
             }
         }
 
         input[type="submit"]{
-            background-color: $blue;
-            color: $clear-purple;
+            background-color: $main-color;
+            color: $white;
             font-size: $bt-font-size;
             width: fit-content;
             padding: 10px 50px;
             align-self: center;
         }
         input[type="submit"]:hover{
-            color: $blue;
-            background-color: $clear-purple;
+            color: $main-color;
+            background-color: $white;
         }
     }
 }

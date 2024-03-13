@@ -2,7 +2,7 @@ header{
     align-items: center;
     justify-content: space-between;
     display: flex;
-    background-color: $dark-blue;
+    background-color: $black;
     padding: 20px 100px 20px 100px;
     .logo{
         max-width: 220px;
@@ -20,7 +20,7 @@ header{
             color: $white;
             gap: 65px;
             p:hover{
-                color: $clear-purple;
+                color: $main-color-light;
                 cursor: pointer;
             }
         }
