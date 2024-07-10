@@ -1,30 +1,35 @@
 "use client";
 
-import { BarChart, Compass, Layout, List } from "lucide-react";
+import { BarChart, Compass, Home, Layout, List } from "lucide-react";
 import { SidebarItem } from "./sidebar-item";
 import { usePathname } from "next/navigation";
 
 const guestRoutes = [
   {
-    icon: Layout,
-    label: "Dashboard",
+    icon: Home,
+    label: "Accueil",
     href: "/",
   },
   {
     icon: Compass,
-    label: "Browse",
+    label: "Découvrir",
     href: "/search",
+  },
+  {
+    icon: Layout,
+    label: "Dashboard",
+    href: "/dashboard",
   },
 ];
 const teacherRoutes = [
   {
     icon: List,
-    label: "Courses",
+    label: "Cours",
     href: "/teacher/courses",
   },
   {
     icon: BarChart,
-    label: "Analytics",
+    label: "Statistiques",
     href: "/teacher/analytics",
   },
 ];
