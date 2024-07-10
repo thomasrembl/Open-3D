@@ -53,7 +53,6 @@ export const ChapterVideoForm = ({
     },
   });
   const { isSubmitting, isValid } = form.formState;
-  const ytCode = initialData.videoUrl;
 
   const ytUrl = initialData.videoUrl
     ? `https://www.youtube.com/embed/${initialData.videoUrl}`
