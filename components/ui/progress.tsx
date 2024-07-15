@@ -10,7 +10,8 @@ const progressVariants = cva("h-full w-full flex-1 bg-white transition-all", {
   variants: {
     variant: {
       default: "bg-sky-600",
-      success: "bg-emerald-600",
+      success: "bg-emerald-500",
+      coursSuccess: "bg-emerald-500",
     },
   },
   defaultVariants: {

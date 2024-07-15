@@ -36,7 +36,7 @@ const Serchpage = async ({ searchParams }: SerchpageProps) => {
       <div className="px-6 pt-6 md:hidden md:mb-0 block">
         <SearchInput />
       </div>
-      <div className="p-6 space-y-4 ">
+      <div className=" space-y-4 pt-4">
         <Categories items={categories} />
         <CoursesList items={courses} />
       </div>

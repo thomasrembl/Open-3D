@@ -79,6 +79,7 @@ body,
   * {
   }
   body {
+    font-family: manrope;
   }
 }
 @layer base {
@@ -98,9 +99,21 @@ body,
     --chart-5: 340 75% 55%;
   }
 }
-* {
-  transition: all 0.2s;
-}
+
 .recharts-surface {
   overflow: visible !important;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Pour Firefox */
+.scrollbar-hidden {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Optionnel pour les autres navigateurs */
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  overflow: -moz-scrollbars-none; /* Pour les anciennes versions de Firefox */
 }

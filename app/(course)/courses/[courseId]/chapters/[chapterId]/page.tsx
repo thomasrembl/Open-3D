@@ -50,8 +50,8 @@ const ChapterIdPage = async ({
           label="Vous devez acheter ce cours pour débloquer le chapitre"
         />
       )}
-      <div className="flex flex-col max-w-5xl mx-auto pb-20">
-        <div className="p-4">
+      <div className="flex flex-col max-w-5xl mx-auto pb-20 h-[85vh] overflow-scroll scrollbar-hidden">
+        <div className="mt-[48px] p-4">
           <VideoPlayer
             url={chapter.videoUrl}
             isLocked={isLocked}

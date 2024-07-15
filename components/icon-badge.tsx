@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const backroundVariants = cva("rounded-full flex items-center justify-center", {
   variants: {
     variant: {
-      default: "bg-sky-100",
+      default: "bg-blue-ribbon-200",
       success: "bg-emerald-100",
     },
     size: {
@@ -23,12 +23,12 @@ const backroundVariants = cva("rounded-full flex items-center justify-center", {
 const iconVariant = cva("", {
   variants: {
     variant: {
-      default: "text-sky-700",
+      default: "text-blue-ribbon-950",
       success: "text-emerald-700",
     },
     size: {
       default: "h-8 w-8",
-      sm: "h4 w-4",
+      sm: "h-4 w-4",
     },
   },
   defaultVariants: {

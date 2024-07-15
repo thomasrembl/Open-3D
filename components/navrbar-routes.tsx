@@ -28,23 +28,30 @@ export const NavbarRoutes = () => {
           <Link href="/">
             <Button size="sm" variant="ghost">
               <LogOut className="h-4 w-4 mr-2" />
-              Exit
+              <p>Retour</p>
             </Button>
           </Link>
         ) : isTeacher(userId) ? (
           <Link href="/teacher/courses">
             <Button size="sm" variant="ghost">
-              Teacher Mode
+              <p>Espace Professeur</p>
             </Button>
           </Link>
         ) : null}
         <UserButton afterSignOutUrl={"/"} />
         {!userId && (
-          <Link href="/sign-in">
-            <Button size="sm" variant="ghost">
-              Sign In
-            </Button>
-          </Link>
+          <div className="flex flex-row gap-2">
+            <Link href="/sign-in">
+              <Button size="sm" variant="outline">
+                <p>Me connecter</p>
+              </Button>
+            </Link>
+            <Link href="/sign-up">
+              <Button size="sm" variant="default">
+                <p>Créer un compte</p>
+              </Button>
+            </Link>
+          </div>
         )}
       </div>
     </>

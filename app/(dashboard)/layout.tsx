@@ -4,13 +4,19 @@ import { Sidebar } from "./_components/sidebar";
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="h-full">
-      <div className="h-[80px] md:pl-56 fixed inset-y-0 w-full z-50">
-        <Navbar />
-      </div>
-      <div className="hidden md:flex h-full w-56 flex-col fixed inset-y-0 z-50">
+      <div className="fixed top-[10px] left-[10px] hidden md:flex h-[97.5vh] min-w-[254px] w-[254px] flex-col  items-stretch  inset-y-0 z-50">
         <Sidebar />
       </div>
-      <main className="md:pl-56 pt-[80px] h-full">{children}</main>
+      <div className="">
+        <div className="h-[80px] md:pr-[10px] left-[10px] md:left-0 pr-[20px] md:pl-[274px] fixed inset-y-[10px] w-full ">
+          <Navbar />
+        </div>
+        <main className=" pr-[10px]  md:pl-[274px] pt-[100px] h-full  ">
+          <div className="h-[86vh] overflow-scroll scrollbar-hidden">
+            {children}
+          </div>
+        </main>
+      </div>
     </div>
   );
 };
