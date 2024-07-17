@@ -1,20 +1,30 @@
-import { authMiddleware } from "@clerk/nextjs";
- 
-// See https://clerk.com/docs/references/nextjs/auth-middleware
-// for more information about configuring your Middleware
-export default authMiddleware({
-  // Allow signed out users to access the specified routes:
-   // publicRoutes: ['/test'],
-   //test pour voir si ça marche
-   publicRoutes: ['/api/uploadthing',"/","/api/webhook", "/search","/courses/[courseId]", "/courses/[courseId]/chapters/[]"],
-});
- 
+import {
+  clerkMiddleware,
+  createRouteMatcher
+} from '@clerk/nextjs/server';
+
+const isProtectedRoute = createRouteMatcher([
+  '/dashboard(.*)',
+  '/teacher(.*)',
+  '/manage(.*)',
+]);
+const isAdminRoute = createRouteMatcher([
+  '/teacher/courses(.*)',
+  '/manage(.*)',
+]);
+
+export default clerkMiddleware((auth, req) => {
+  if (isProtectedRoute(req)) auth().protect();
+  if (isAdminRoute(req)) {
+    auth().protect(has => {
+      return (
+        has({ role: 'org:admin' }) ||
+        has({ permission: 'org:sys_domains_manage' })
+      )
+    });
+  }
+},);
+
 export const config = {
-  matcher: [
-    // Exclude files with a "." followed by an extension, which are typically static files.
-    // Exclude files in the _next directory, which are Next.js internals.
-    "/((?!.+\\.[\\w]+$|_next).*)",
-    // Re-include any files in the api or trpc folders that might have an extension
-    "/(api|trpc)(.*)"
-  ]
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };

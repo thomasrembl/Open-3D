@@ -54,7 +54,7 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div>
+    <div className="h-[82vh] overflow-scroll scrollbar-hidden">
       <div className="flex items-center py-4 justify-between">
         <Input
           variant={"secondary"}
@@ -121,24 +121,6 @@ export function DataTable<TData, TValue>({
             )}
           </TableBody>
         </Table>
-      </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
       </div>
     </div>
   );
