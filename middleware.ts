@@ -5,6 +5,7 @@ import { authMiddleware } from "@clerk/nextjs";
 export default authMiddleware({
   // Allow signed out users to access the specified routes:
    // publicRoutes: ['/test'],
+   //test pour voir si ça marche
    publicRoutes: ['/api/uploadthing',"/","/api/webhook", "/search","/courses/[courseId]", "/courses/[courseId]/chapters/[]"],
 });
  
