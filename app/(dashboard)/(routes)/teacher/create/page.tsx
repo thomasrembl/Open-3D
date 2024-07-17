@@ -41,18 +41,20 @@ const CreatePage = () => {
     try {
       const response = await axios.post("/api/courses", values);
       router.push(`/teacher/courses/${response.data.id}`);
-      toast.success("Course created");
+      toast.success("Cours créé avec succès");
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     }
   };
 
   return (
-    <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
-      <div>
-        <h1 className="text-2xl">Name your course</h1>
-        <p className="text-sm text-slate-600">
-          What would you like to name you&apos;r course
+    <div className="max-w-5xl mx-auto flex items-center justify-center h-full p-6">
+      <div className="bg-white rounded-md p-5">
+        <h1 className="text-2xl font-manrope text-cod-gray-950 font-normal">
+          Nommé votre cours
+        </h1>
+        <p className="text-sm text-cod-gray-950 font-light font-manrope">
+          Comment aimeriez vous appelé votre cours
         </p>
         <Form {...form}>
           <form
@@ -64,16 +66,23 @@ const CreatePage = () => {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Course Title</FormLabel>
+                  <FormLabel>
+                    <p className="font-poppins font-semibold text-xs text-cod-gray-950">
+                      Titre du cours
+                    </p>
+                  </FormLabel>
                   <FormControl>
                     <Input
                       disabled={isSubmitting}
-                      placeholder="e.g 'Advenced web development"
+                      placeholder="ex 'Texturez vos meshs'"
                       {...field}
+                      variant={"secondary"}
                     />
                   </FormControl>
                   <FormDescription>
-                    What would you teach in this course
+                    <span className="font-manrope text-sm font-light">
+                      Qu’allez vous apprendre dans ce cours
+                    </span>
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

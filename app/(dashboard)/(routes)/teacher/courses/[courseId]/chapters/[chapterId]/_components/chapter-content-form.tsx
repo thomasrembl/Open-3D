@@ -29,10 +29,10 @@ interface ChapterAccessFormProps {
 }
 
 const formSchema = z.object({
-  isFree: z.boolean().default(false),
+  isVideo: z.boolean().default(true),
 });
 
-export const ChapterAccessForm = ({
+export const ChapterContentForm = ({
   initialData,
   courseId,
   chapterId,
@@ -43,7 +43,7 @@ export const ChapterAccessForm = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      isFree: !!initialData.isFree,
+      isVideo: !!initialData.isVideo,
     },
   });
 
@@ -51,6 +51,10 @@ export const ChapterAccessForm = ({
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+      await axios.patch(
+        `/api/courses/${courseId}/chapters/${chapterId}/unpublish`
+      );
+      await axios.patch(`/api/courses/${courseId}/unpublish`);
       await axios.patch(
         `/api/courses/${courseId}/chapters/${chapterId}`,
         values
@@ -65,14 +69,14 @@ export const ChapterAccessForm = ({
   return (
     <div className="mt-6  bg-white rounded-sm p-4">
       <div className="fond-medium flex items-center justify-between">
-        <p className="font-poppins">Accès du Chapitre</p>
+        <p className="font-poppins">Contenu du Chapitre</p>
         <Button variant="ghost" onClick={toggleEditing}>
           {isEditing ? (
             <>Annuler</>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Modifier l&apos;accès
+              Modifier le contenu
             </>
           )}
         </Button>
@@ -81,13 +85,13 @@ export const ChapterAccessForm = ({
         <p
           className={cn(
             "text-sm mt-2 ",
-            !initialData.isFree && "text-white-500 font-manrope italic"
+            !initialData.isVideo && "text-white-500 font-manrope italic"
           )}
         >
-          {initialData.isFree ? (
-            <>Ce chapitre est gratuit</>
+          {initialData.isVideo ? (
+            <>Ce chapitre contient une vidéo</>
           ) : (
-            <>Ce chapitre n&apos;est pas gratuit</>
+            <>Ce chapitre ne contient pas de vidéo</>
           )}
         </p>
       )}
@@ -99,7 +103,7 @@ export const ChapterAccessForm = ({
           >
             <FormField
               control={form.control}
-              name="isFree"
+              name="isVideo"
               render={({ field }) => (
                 <FormItem className="flex flex-row items-start space-x-3 space-y-0  p-4">
                   <FormControl>
@@ -111,7 +115,7 @@ export const ChapterAccessForm = ({
                   <div className="space-y-1 leading-none">
                     <FormDescription>
                       <p className="font-manrope cursor-default">
-                        Cochez cette case si le chapitre est gratuit.
+                        Cochez cette case si le chapitre contient une vidéo.
                       </p>
                     </FormDescription>
                   </div>

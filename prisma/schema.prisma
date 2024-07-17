@@ -59,6 +59,7 @@ model Chapter {
   position    Int
   isPublished Boolean @default(false)
   isFree      Boolean @default(false)
+  isVideo     Boolean @default(true)
 
   muxData MuxData?
 

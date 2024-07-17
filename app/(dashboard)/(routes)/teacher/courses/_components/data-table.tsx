@@ -57,6 +57,7 @@ export function DataTable<TData, TValue>({
     <div>
       <div className="flex items-center py-4 justify-between">
         <Input
+          variant={"secondary"}
           placeholder="Filtrer les cours..."
           value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
@@ -71,7 +72,7 @@ export function DataTable<TData, TValue>({
           </Button>
         </Link>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md border border-cod-gray-200">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -112,9 +113,9 @@ export function DataTable<TData, TValue>({
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center"
+                  className="h-24 text-center font-manrope text-cod-gray-400"
                 >
-                  No results.
+                  Aucun cours trouvé ...
                 </TableCell>
               </TableRow>
             )}

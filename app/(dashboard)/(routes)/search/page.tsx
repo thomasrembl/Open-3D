@@ -3,8 +3,8 @@ import { Categories } from "./_components/categories";
 import { SearchInput } from "@/components/search-input";
 import { getCourses } from "@/actions/get-courses";
 import { auth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
 import { CoursesList } from "@/components/courses-list";
+import { getAllCourses } from "@/actions/get-all-courses";
 
 interface SerchpageProps {
   searchParams: {
@@ -16,15 +16,26 @@ interface SerchpageProps {
 const Serchpage = async ({ searchParams }: SerchpageProps) => {
   const { userId } = auth();
 
-  if (!userId) {
-    return redirect("/");
-  }
-
   const categories = await db.category.findMany({
     orderBy: {
       name: "asc",
     },
   });
+
+  if (!userId) {
+    const allCourses = await getAllCourses(searchParams);
+    return (
+      <div className="">
+        <div className=" space-y-4 pt-4 h-[86vh] overflow-scroll md:ml-0 ml-[10px] scrollbar-hidden">
+          <div className="py-6 md:hidden md:mb-0 block ">
+            <SearchInput />
+          </div>
+          <Categories items={categories} />
+          <CoursesList items={allCourses} />
+        </div>
+      </div>
+    );
+  }
 
   const courses = await getCourses({
     userId,
@@ -32,15 +43,15 @@ const Serchpage = async ({ searchParams }: SerchpageProps) => {
   });
 
   return (
-    <>
-      <div className="px-6 pt-6 md:hidden md:mb-0 block">
-        <SearchInput />
-      </div>
-      <div className=" space-y-4 pt-4">
+    <div className="">
+      <div className=" space-y-4 pt-4 h-[86vh] overflow-scroll md:ml-0 ml-[10px] scrollbar-hidden">
+        <div className="py-6 md:hidden md:mb-0 block ">
+          <SearchInput />
+        </div>
         <Categories items={categories} />
         <CoursesList items={courses} />
       </div>
-    </>
+    </div>
   );
 };
 

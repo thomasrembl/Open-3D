@@ -41,22 +41,7 @@ export async function DELETE(
             return new NextResponse("Not found",{ status: 404 })
         }
 
-        if (chapter.videoUrl) {
-            const existingMuxData = await db.muxData.findFirst({
-                where: {
-                    chapterId: params.chapterId
-                }
-            });
-
-            if (existingMuxData){
-                await video.assets.delete(existingMuxData.assetId);
-                await db.muxData.delete({
-                    where:{
-                        id : existingMuxData.id,
-                    }
-                });
-            }
-        }
+        
 
         const deletedChapter = await db.chapter.delete({
             where: {

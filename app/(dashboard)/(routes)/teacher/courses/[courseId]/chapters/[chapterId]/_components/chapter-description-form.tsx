@@ -14,12 +14,10 @@ import {
   FormField,
 } from "@/components/ui/form";
 
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Pencil } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Textarea } from "@/components/ui/textarea";
 import { Chapter } from "@prisma/client";
 import { Editor } from "@/components/editor";
 import { Preview } from "@/components/preview";
@@ -58,24 +56,24 @@ export const ChapterDescriptionForm = ({
         `/api/courses/${courseId}/chapters/${chapterId}`,
         values
       );
-      toast.success("Chapter updated");
+      toast.success("Chapiitre mis à jour");
       toggleEditing();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     }
   };
   return (
-    <div className="mt-6 border bg-slate-100 rounded-sm p-4">
+    <div className="mt-6  bg-white rounded-sm p-4">
       <div className="fond-medium flex items-center justify-between">
-        Chapter Description
+        <p className="font-poppins">Description du Chapitre</p>
         <Button variant="ghost" onClick={toggleEditing}>
           {isEditing ? (
-            <>Cancel</>
+            <>Annuler</>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit Description
+              Modifer la description
             </>
           )}
         </Button>
@@ -84,10 +82,10 @@ export const ChapterDescriptionForm = ({
         <div
           className={cn(
             "text-sm mt-2 ",
-            !initialData.description && "text-slate-500 italic"
+            !initialData.description && "text-white-500 italic font-manrope"
           )}
         >
-          {!initialData.description && "No description"}
+          {!initialData.description && "Pas de description"}
           {initialData.description && (
             <Preview value={initialData.description} />
           )}
@@ -113,7 +111,7 @@ export const ChapterDescriptionForm = ({
             />
             <div className="flex items-center gap-x-2">
               <Button type="submit" disabled={!isValid || isSubmitting}>
-                Save
+                Enregistrer
               </Button>
             </div>
           </form>

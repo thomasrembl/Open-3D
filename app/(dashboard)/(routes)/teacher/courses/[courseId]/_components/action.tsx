@@ -3,7 +3,6 @@
 import { ConfirmModal } from "@/components/modal/confirm-modal";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
-import { on } from "events";
 import { Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -23,11 +22,11 @@ export const Actions = ({ disabled, courseId, isPublished }: ActionsProps) => {
     try {
       setIsLoaded(true);
       await axios.delete(`/api/courses/${courseId}`);
-      toast.success("Course deleted");
+      toast.success("Cours supprimé");
       router.refresh();
       router.push(`/teacher/courses`);
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     } finally {
       setIsLoaded(false);
     }
@@ -38,15 +37,15 @@ export const Actions = ({ disabled, courseId, isPublished }: ActionsProps) => {
       setIsLoaded(true);
       if (isPublished) {
         await axios.patch(`/api/courses/${courseId}/unpublish`);
-        toast.success("Course unpublished");
+        toast.success("Cours dépublié");
       } else {
         await axios.patch(`/api/courses/${courseId}/publish`);
 
-        toast.success("Course published");
+        toast.success("Cours publié");
       }
       router.refresh();
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     } finally {
       setIsLoaded(false);
     }
@@ -60,10 +59,10 @@ export const Actions = ({ disabled, courseId, isPublished }: ActionsProps) => {
         variant="outline"
         size="sm"
       >
-        {isPublished ? "Unpublish" : "Publish"}
+        {isPublished ? "Dépublier" : "Publier"}
       </Button>
       <ConfirmModal onConfirm={onDelete}>
-        <Button size="sm" disabled={isLoaded}>
+        <Button size="sm" variant={"destructive"} disabled={isLoaded}>
           <Trash className="h-4 w-4" />
         </Button>
       </ConfirmModal>

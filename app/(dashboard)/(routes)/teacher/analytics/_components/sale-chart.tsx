@@ -56,9 +56,15 @@ const SaleChart = ({ data, type }: SaleChartProps) => {
         <div>
           <Card className="flex flex-col">
             <CardHeader className="items-center pb-0">
-              <CardTitle>Nombre de cours vendu</CardTitle>
+              <CardTitle>
+                <h2 className="font-manrope font-semibold text-2xl text-cod-gray-950">
+                  Nombre de cours vendu
+                </h2>
+              </CardTitle>
               <CardDescription>
-                Sur l&apos;ensemble de mon compte
+                <p className="font-manrope text-sm font-normal text-cod-gray-950">
+                  Sur l&apos;ensemble de mon compte
+                </p>
               </CardDescription>
             </CardHeader>
             <CardContent className="flex-1 pb-0">
@@ -88,8 +94,16 @@ const SaleChart = ({ data, type }: SaleChartProps) => {
         <div>
           <Card>
             <CardHeader>
-              <CardTitle>Mes Ventes - en Euro €</CardTitle>
-              <CardDescription>Par rapport aux cours</CardDescription>
+              <CardTitle>
+                <h2 className="font-manrope font-semibold text-2xl text-cod-gray-950">
+                  Mes Ventes - en Euro €
+                </h2>
+              </CardTitle>
+              <CardDescription>
+                <p className="font-manrope text-sm font-normal text-cod-gray-950">
+                  Par rapport aux cours
+                </p>
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <ChartContainer config={chartConfigBar}>

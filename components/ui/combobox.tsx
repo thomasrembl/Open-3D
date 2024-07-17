@@ -31,25 +31,30 @@ export const Combobox = ({ options, value, onChange }: ComboboxProps) => {
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-          variant="outline"
+          variant="input"
           role="combobox"
           aria-expanded={open}
           className="w-full justify-between"
         >
           {value
             ? options.find((option) => option.value === value)?.label
-            : "Select option..."}
+            : "Sélectionner une catégorie..."}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-full p-0">
+      <PopoverContent className="w-full p-0 bg-white">
         <Command>
-          <CommandInput placeholder="Search option..." />
-          <CommandEmpty>No option found.</CommandEmpty>
+          <CommandInput placeholder="Catégorie..." />
+          <CommandEmpty>
+            <p className="font-manrope text-sm text-white-500">
+              Aucune catégorie trouvé
+            </p>
+          </CommandEmpty>
           <CommandGroup>
             {options.map((option) => (
               <CommandItem
                 key={option.value}
+                className="hover:bg-white-100 cursor-pointer"
                 onSelect={() => {
                   onChange(option.value === value ? "" : option.value);
                   setOpen(false);

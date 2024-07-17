@@ -10,7 +10,7 @@
     "build:css": "tailwindcss build app/globals.css -o public/styles.css"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.9",
+    "@clerk/nextjs": "^4.31.3",
     "@hello-pangea/dnd": "^16.6.0",
     "@hookform/resolvers": "^3.3.4",
     "@mux/mux-node": "^8.2.3",

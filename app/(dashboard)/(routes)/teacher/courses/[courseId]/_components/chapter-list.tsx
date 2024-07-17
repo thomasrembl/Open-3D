@@ -73,17 +73,18 @@ export const ChapterList = ({ items, onReorder, onEdit }: ChapterListProps) => {
                 {(provided) => (
                   <div
                     className={cn(
-                      "flex items-center gap-x-2 bg-slate-200 border-slate-200 border text-slate-700 rounded-md mb-4 text-sm",
+                      "flex items-center gap-x-2 bg-paris-m-200 border-paris-m-300 border text-cod-gray-950 rounded-md mb-4 text-sm",
                       chapter.isPublished &&
-                        "bg-sky-100 border-sky-200 text-sky-700"
+                        "bg-blue-ribbon-300 border-blue-ribbon-700 "
                     )}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                   >
                     <div
                       className={cn(
-                        "px-2 py-3 border-r border-r-slate-200 hover:bg-slate-300 rounded-l-md transition",
-                        chapter.isPublished && "bg-sky-100 border-sky-200"
+                        "px-2 py-3 border-r border-r-paris-m-300 hover:bg-paris-m-300 rounded-l-md transition",
+                        chapter.isPublished &&
+                          "bg-blue-ribbon-300 border-r-blue-ribbon-700 hover:bg-blue-ribbon-400"
                       )}
                       {...provided.dragHandleProps}
                     >
@@ -94,11 +95,12 @@ export const ChapterList = ({ items, onReorder, onEdit }: ChapterListProps) => {
                       {chapter.isFree && <Badge>Free</Badge>}
                       <Badge
                         className={cn(
-                          "bg-slate-500",
-                          chapter.isPublished && "bg-sky-700"
+                          "bg-paris-m-500 hover:bg-paris-m-700 cursor-default",
+                          chapter.isPublished &&
+                            "bg-blue-ribbon-500 hover:bg-blue-ribbon-400"
                         )}
                       >
-                        {chapter.isPublished ? "Published" : "Draft"}
+                        {chapter.isPublished ? "Publié" : "Brouillion"}
                       </Badge>
                       <Pencil
                         onClick={() => onEdit(chapter.id)}

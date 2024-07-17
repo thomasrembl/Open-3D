@@ -2,16 +2,13 @@
 
 import * as z from "zod";
 import axios from "axios";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
-import { File, ImageIcon, Loader2, Pencil, PlusCircle, X } from "lucide-react";
+import { File, Loader2, PlusCircle, X } from "lucide-react";
 import { useState } from "react";
 import { Attachment, Course } from "@prisma/client";
-import Image from "next/image";
 import { FileUpload } from "@/components/file-upload";
 
 interface AttachmentFormProps {
@@ -36,11 +33,11 @@ export const AttachmentForm = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post(`/api/courses/${courseId}/attachments`, values);
-      toast.success("Course updated");
+      toast.success("Cours mis à jour");
       toggleEditing();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     }
   };
 
@@ -48,24 +45,24 @@ export const AttachmentForm = ({
     try {
       setDeletingId(id);
       await axios.delete(`/api/courses/${courseId}/attachments/${id}`);
-      toast.success("Attachment deleted");
+      toast.success("Ressource supprimée");
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     } finally {
       setDeletingId(null);
     }
   };
   return (
-    <div className="mt-6 border bg-slate-100 rounded-sm p-4">
+    <div className="mt-6  bg-white rounded-sm p-4">
       <div className="fond-medium flex items-center justify-between">
-        Course Attachment
+        <p className="">Ressources</p>
         <Button variant="ghost" onClick={toggleEditing}>
-          {isEditing && <>Cancel</>}
+          {isEditing && <>Annuler</>}
           {!isEditing && (
             <>
               <PlusCircle className="h-4 w-4 mr-2" />
-              Add a file
+              Ajouter un fichier
             </>
           )}
         </Button>
@@ -73,8 +70,8 @@ export const AttachmentForm = ({
       {!isEditing && (
         <>
           {initialData.attachments.length === 0 && (
-            <p className="text-small mt-2 text-slate-500 italic">
-              No attachments yet
+            <p className="text-sm mt-2 font-manrope text-white-500 italic">
+              Pas de fichier pour le moment
             </p>
           )}
           {initialData.attachments.length > 0 && (
@@ -82,7 +79,7 @@ export const AttachmentForm = ({
               {initialData.attachments.map((attachment) => (
                 <div
                   key={attachment.id}
-                  className="flex items-center p-3 w-full bg-sky-100 border-sky-200 border text-sky-700 rounded-md"
+                  className="flex items-center p-3 w-full bg-blue-ribbon-100 border-blue-ribbon-400 border text-blue-ribbon-700 rounded-md"
                 >
                   <File className="h-4 w-4 mr-2 flex-shrink-0" />
                   <p className="text-xs line-clamp-1">{attachment.name}</p>
@@ -116,7 +113,7 @@ export const AttachmentForm = ({
             }}
           />
           <div className="text-xs text-muted-foreground mt-4">
-            Add anything need to complete your course.
+            <p>Ajouter n&apos;importe quel fichier pour votre cours</p>
           </div>
         </div>
       )}

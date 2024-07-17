@@ -53,24 +53,24 @@ export const ChapterTitleForm = ({
         `/api/courses/${courseId}/chapters/${chapterId}`,
         values
       );
-      toast.success("Chapter updated");
+      toast.success("Chapiitre mis à jour");
       toggleEditing();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     }
   };
   return (
-    <div className="mt-6 border bg-slate-100 rounded-sm p-4">
+    <div className="mt-6  bg-white rounded-sm p-4">
       <div className="fond-medium flex items-center justify-between">
-        Chapter title
+        <p className="font-poppins">Titre du Chapitre</p>
         <Button variant="ghost" onClick={toggleEditing}>
           {isEditing ? (
-            <>Cancel</>
+            <>Annuler</>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit title
+              Modifier le titre
             </>
           )}
         </Button>
@@ -90,7 +90,8 @@ export const ChapterTitleForm = ({
                   <FormControl>
                     <Input
                       disabled={isSubmitting}
-                      placeholder="eg. 'Introduction to the course'"
+                      placeholder="ex. 'Introduction'"
+                      variant={"third"}
                       {...field}
                     />
                   </FormControl>
@@ -100,7 +101,7 @@ export const ChapterTitleForm = ({
             />
             <div className="flex items-center gap-x-2">
               <Button type="submit" disabled={!isValid || isSubmitting}>
-                Save
+                Enregistrer
               </Button>
             </div>
           </form>

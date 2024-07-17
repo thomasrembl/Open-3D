@@ -23,7 +23,7 @@ export const columns: ColumnDef<Course>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Titre
+          <p className="font-manrope text-sm font-normal">Titre</p>
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -37,7 +37,8 @@ export const columns: ColumnDef<Course>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Prix
+          <p className="font-manrope text-sm font-normal">Prix</p>
+
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -60,7 +61,8 @@ export const columns: ColumnDef<Course>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Publié
+          <p className="font-manrope text-sm font-normal">Publié</p>
+
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -68,8 +70,10 @@ export const columns: ColumnDef<Course>[] = [
     cell: ({ row }) => {
       const isPublished = row.getValue("isPublished") || false;
       return (
-        <Badge className={cn("bg-slate-500", isPublished && "bg-sky-700")}>
-          {isPublished ? "Oui" : "Brouillon"}
+        <Badge variant={isPublished ? "secondary" : "draft"}>
+          <p className="font-manrope text-xs font-light">
+            {isPublished ? "Oui" : "Brouillon"}
+          </p>
         </Badge>
       );
     },
@@ -86,11 +90,13 @@ export const columns: ColumnDef<Course>[] = [
               <MoreHorizontal className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end" className="bg-white">
             <Link href={`/teacher/courses/${id}`}>
-              <DropdownMenuItem>
+              <DropdownMenuItem className=" hover:bg-white-100 cursor-pointer">
                 <Pencil className="h-4 w-4 mr-2" />
-                Modifier
+                <p className="font-manrope font-normal text-cod-gray-950">
+                  Modifier
+                </p>
               </DropdownMenuItem>
             </Link>
           </DropdownMenuContent>

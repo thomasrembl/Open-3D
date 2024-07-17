@@ -62,36 +62,36 @@ export const ChapterVideoForm = ({
     try {
       const videoId = extractYouTubeVideoId(values.videoUrl);
       if (!videoId) {
-        toast.error("Invalid YouTube URL");
+        toast.error("URL Youtube invalide");
         return;
       }
       await axios.patch(`/api/courses/${courseId}/chapters/${chapterId}`, {
         videoUrl: videoId,
       });
-      toast.success("Chapter updated");
+      toast.success("Chapiitre mis à jour");
       toggleEditing();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     }
   };
   return (
-    <div className="mt-6 border bg-slate-100 rounded-sm p-4">
-      <div className="fond-medium flex items-center justify-between">
-        Course Video
+    <div className="mt-6  bg-white rounded-sm p-4">
+      <div className="fond-medium flex items-center mb-2 justify-between">
+        <p className="font-poppins">Vidéo</p>
         <Button variant="ghost" onClick={toggleEditing}>
-          {isEditing && <>Cancel</>}
+          {isEditing && <>Annuler</>}
           {!isEditing && !initialData.videoUrl && (
             <>
               <PlusCircle className="h-4 w-4 mr-2" />
-              Add a Video
+              Ajouter un vidéo
             </>
           )}
 
           {!isEditing && initialData.videoUrl && (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit a Video
+              Modifier la vidéo
             </>
           )}
         </Button>
@@ -115,14 +115,6 @@ export const ChapterVideoForm = ({
         ))}
       {isEditing && (
         <div>
-          {/* <FileUpload
-            endpoint="chapterVideo"
-            onChange={(url) => {
-              if (url) {
-                onSubmit({ videoUrl: url });
-              }
-            }}
-          /> */}
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -152,7 +144,7 @@ export const ChapterVideoForm = ({
             </form>
           </Form>
           <div className="text-xs text-muted-foreground mt-4">
-            Upload this chapter video
+            Uploader la vidéo de ce chapitre
           </div>
         </div>
       )}

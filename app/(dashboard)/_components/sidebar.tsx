@@ -5,7 +5,7 @@ import { Footer } from "./footer";
 
 export const Sidebar = () => {
   return (
-    <div className="h-full  rounded-[1.25rem] flex flex-col justify-between items-center bg-blue-ribbon-500 shadow-sm py-12">
+    <div className="h-full  rounded-md flex flex-col justify-between items-center bg-blue-ribbon-500 shadow-sm py-12">
       <div className="flex flex-col gap-8 w-[12.1875rem]">
         <div>
           <Logo />

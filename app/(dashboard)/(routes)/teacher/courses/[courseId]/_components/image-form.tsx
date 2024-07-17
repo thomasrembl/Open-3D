@@ -34,30 +34,30 @@ export const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("Course updated");
+      toast.success("Cours mis à jour");
       toggleEditing();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     }
   };
   return (
-    <div className="mt-6 border bg-slate-100 rounded-sm p-4">
-      <div className="fond-medium flex items-center justify-between">
-        Course Image
+    <div className="mt-6  bg-white rounded-sm p-4">
+      <div className="fond-medium flex items-center justify-between mb-2">
+        <p className="font-poppins">Image du Cours</p>
         <Button variant="ghost" onClick={toggleEditing}>
-          {isEditing && <>Cancel</>}
+          {isEditing && <>Annuler</>}
           {!isEditing && !initialData.imageUrl && (
             <>
               <PlusCircle className="h-4 w-4 mr-2" />
-              Add image
+              Ajouter une image
             </>
           )}
 
           {!isEditing && initialData.imageUrl && (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit image
+              Modifier l&apos;image
             </>
           )}
         </Button>
@@ -88,7 +88,7 @@ export const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
             }}
           />
           <div className="text-xs text-muted-foreground mt-4">
-            16:9 aspect ratio recommended
+            Ratio recommandé: 16:9
           </div>
         </div>
       )}

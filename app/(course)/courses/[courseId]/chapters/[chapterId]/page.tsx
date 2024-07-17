@@ -38,9 +38,36 @@ const ChapterIdPage = async ({
   const isLocked = !chapter.isFree && !purchase;
 
   const completeOnEnd = !!purchase && userProgress?.isCompleted;
+  let skeletonSize = 0;
+  if (chapter.description) {
+    if (chapter.description.length < 100) {
+      skeletonSize = 4;
+    } else {
+      skeletonSize = chapter.description?.length / 100;
+    }
+  } else {
+    skeletonSize = 0;
+  }
 
+  const roundedSkeleton = Math.ceil(skeletonSize);
+  const skeleton = Array.from({ length: roundedSkeleton }, (_, index) => {
+    const randomWidth = `${90 + Math.random() * 10}%`;
+    return (
+      <>
+        <Skeleton
+          key={randomWidth}
+          className="h-4 "
+          style={{ width: randomWidth }}
+        />
+      </>
+    );
+  });
+  let divHeight = "85vh";
+  if (userProgress?.isCompleted || isLocked) {
+    divHeight = "80vh";
+  }
   return (
-    <div>
+    <>
       {userProgress?.isCompleted && (
         <Banner variant="success" label="Vous avez déjà terminé ce chapitre" />
       )}
@@ -50,13 +77,20 @@ const ChapterIdPage = async ({
           label="Vous devez acheter ce cours pour débloquer le chapitre"
         />
       )}
-      <div className="flex flex-col max-w-5xl mx-auto pb-20 h-[85vh] overflow-scroll scrollbar-hidden">
+      <div
+        style={{ height: divHeight }}
+        className="flex flex-col max-w-5xl mx-auto pb-20  overflow-scroll scrollbar-hidden"
+      >
         <div className="mt-[48px] p-4">
-          <VideoPlayer
-            url={chapter.videoUrl}
-            isLocked={isLocked}
-            onComplete={completeOnEnd}
-          />
+          {chapter.isVideo ? (
+            <VideoPlayer
+              url={chapter.videoUrl}
+              isLocked={isLocked}
+              onComplete={completeOnEnd}
+            />
+          ) : (
+            <div></div>
+          )}
         </div>
         <div>
           <div className="p-4 flex flex-col md:flex-row items-center justify-between">
@@ -78,11 +112,7 @@ const ChapterIdPage = async ({
           <Separator />
           <div>
             {isLocked ? (
-              <div className="space-y-2 mt-5 p-4">
-                <Skeleton className="h-4 w-[90%]" />
-                <Skeleton className="h-4 w-[88%]" />
-                <Skeleton className="h-4 w-[70%]" />
-              </div>
+              <div className="space-y-2 mt-5 p-4">{skeleton}</div>
             ) : (
               chapter.description && <Preview value={chapter.description} />
             )}
@@ -107,7 +137,7 @@ const ChapterIdPage = async ({
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

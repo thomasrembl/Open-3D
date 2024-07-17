@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs";
 import { CheckCircle2, Clock } from "lucide-react";
 import { redirect } from "next/navigation";
 import InfoCard from "./_components/info-card";
+import Filter from "./_components/filter";
 
 const DashboardPage = async () => {
   const { userId } = auth();
@@ -16,23 +17,21 @@ const DashboardPage = async () => {
     userId
   );
 
+  const allCoursItems = [...coursesInProgress, ...completedCourses];
+  const inProgressItems = [...coursesInProgress];
+  const completedItems = [...completedCourses];
+  const progressLength = coursesInProgress.length;
+  const completedLength = completedCourses.length;
+
   return (
-    <div className="p-6 space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <InfoCard
-          icon={Clock}
-          label="En Cours"
-          numberOfitems={coursesInProgress.length}
-          variant="default"
-        />
-        <InfoCard
-          icon={CheckCircle2}
-          label="Terminé"
-          numberOfitems={completedCourses.length}
-          variant="success"
-        />
-      </div>
-      <CoursesList items={[...coursesInProgress, ...completedCourses]} />
+    <div className="p-6 h-[86vh] overflow-scroll md:ml-0 ml-[10px] scrollbar-hidden">
+      <Filter
+        allCoursItems={allCoursItems}
+        inProgressItems={inProgressItems}
+        completedItems={completedItems}
+        progressLength={progressLength}
+        completedLength={completedLength}
+      />
     </div>
   );
 };

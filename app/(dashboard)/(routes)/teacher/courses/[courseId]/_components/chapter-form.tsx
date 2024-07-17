@@ -19,7 +19,6 @@ import { Button } from "@/components/ui/button";
 import { Loader2, Pencil, PlusCircle } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Textarea } from "@/components/ui/textarea";
 import { Chapter, Course } from "@prisma/client";
 import { ChapterList } from "./chapter-list";
 
@@ -55,11 +54,11 @@ export const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post(`/api/courses/${courseId}/chapters`, values);
-      toast.success("Chapter created ");
+      toast.success("Chapitre créé");
       toggleCreating();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     }
   };
 
@@ -69,10 +68,10 @@ export const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
       await axios.put(`/api/courses/${courseId}/chapters/reorder`, {
         list: updateData,
       });
-      toast.success("Chapters reordered");
+      toast.success("Chapitre réordonné");
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     } finally {
       setIsUpdating(false);
     }
@@ -81,21 +80,21 @@ export const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
     router.push(`/teacher/courses/${courseId}/chapters/${id}`);
   };
   return (
-    <div className="relative mt-6 border bg-slate-100 rounded-sm p-4">
+    <div className="relative mt-6  bg-white rounded-sm p-4">
       {isUpating && (
         <div className="absolute h-full w-full bg-slate-500/20 top-0 right-0 rounded-md flex items-center justify-center">
-          <Loader2 className="h-6 w-6 animate-spin text-sky-700" />
+          <Loader2 className="h-6 w-6 animate-spin text-blue-ribbon-500" />
         </div>
       )}
       <div className="fond-medium flex items-center justify-between">
-        Course Chpater
+        <p className="font-poppins font-normal">Chapitres du Cours</p>
         <Button variant="ghost" onClick={toggleCreating}>
           {isCreating ? (
-            <>Cancel</>
+            <>Annuler</>
           ) : (
             <>
               <PlusCircle className="h-4 w-4 mr-2" />
-              Add a chapter
+              Ajouter un chapitre
             </>
           )}
         </Button>
@@ -115,8 +114,9 @@ export const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
                   <FormControl>
                     <Input
                       disabled={isSubmitting}
-                      placeholder="e.g. 'Introduction to the course'"
+                      placeholder="ex. 'Introduction'"
                       {...field}
+                      variant={"third"}
                     />
                   </FormControl>
                   <FormMessage />
@@ -125,7 +125,7 @@ export const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
             />
 
             <Button type="submit" disabled={!isValid || isSubmitting}>
-              Create
+              Créer
             </Button>
           </form>
         </Form>
@@ -134,10 +134,10 @@ export const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
         <div
           className={cn(
             "text-sm mt-2",
-            !initialData.chapters.length && "text-slate-500 italic"
+            !initialData.chapters.length && "font-manrope text-white-500 italic"
           )}
         >
-          {!initialData.chapters.length && "No Chapters"}
+          {!initialData.chapters.length && " Pas de chapitre"}
           <ChapterList
             onEdit={onEdit}
             onReorder={onReorder}
@@ -147,7 +147,7 @@ export const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
       )}
       {!isCreating && (
         <p className="text-xs text-muted-foreground mt-4">
-          Drag and drop to reorder chapters
+          Drag and drop pour réaranger les chapitres
         </p>
       )}
     </div>

@@ -34,7 +34,7 @@ const CourseSidebarItem = ({
       onClick={onClick}
       typeof="button"
       className={cn(
-        "flex items-center rounded-full gap-x-2 text-white text-sm font-[500] pl-6 transition-all hover:bg-blue-400",
+        "flex items-center rounded-xl gap-x-2 text-white text-sm font-[500] pl-6 transition-all hover:bg-blue-400",
         isActive && " bg-blue-ribbon-700 hover:bg-blue-ribbon-700",
         isCompleted && "bg-emerald-700 hover:bg-emerald-500",
         isCompleted && isActive && "bg-emerald-500"

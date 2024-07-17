@@ -4,14 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const bannerVariants = cva(
-  "border text-center p-4 text-sm flex items-center w-full",
+  "border text-center p-4 text-sm flex items-center w-full z-50",
   {
     variants: {
       variant: {
         warning:
-          "text-white rounded-md bg-lightning-yellow-700 border-lightning-yellow-700 fixed ",
-        success:
-          "bg-emerald-700 border-emerald-700 text-white rounded-md fixed",
+          "text-white rounded-md bg-lightning-yellow-700 border-lightning-yellow-700  ",
+        success: "bg-emerald-700 border-emerald-700 text-white rounded-md ",
       },
     },
     defaultVariants: {

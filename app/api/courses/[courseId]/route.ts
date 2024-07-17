@@ -69,6 +69,10 @@ export async function PATCH(req: Request, {params}: {params: {courseId: string}}
             return new NextResponse("Unauthorized", { status: 401 });
         }
 
+        if (values.price) {
+            values.price = Math.abs(values.price);
+        }
+
     const course = await db.course.update({
                 where: {
                     id: courseId,

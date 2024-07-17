@@ -19,7 +19,6 @@ import { Button } from "@/components/ui/button";
 import { Pencil } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Textarea } from "@/components/ui/textarea";
 import { Course } from "@prisma/client";
 import { formatPrice } from "@/lib/format";
 
@@ -48,25 +47,26 @@ export const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+      await axios.patch(`/api/courses/${courseId}/unpublish`);
       await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("Course updated");
+      toast.success("Cours mis à jour");
       toggleEditing();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     }
   };
   return (
-    <div className="mt-6 border bg-slate-100 rounded-sm p-4">
+    <div className="mt-6  bg-white rounded-sm p-4">
       <div className="fond-medium flex items-center justify-between">
-        Course Price
+        <p className="font-poppins">Prix du Cours</p>
         <Button variant="ghost" onClick={toggleEditing}>
           {isEditing ? (
-            <>Cancel</>
+            <>Annuler</>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit Price
+              Modifier le prix
             </>
           )}
         </Button>
@@ -75,10 +75,10 @@ export const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
         <p
           className={cn(
             "text-sm mt-2 ",
-            !initialData.price && "text-slate-500 italic"
+            !initialData.price && "text-white-500 font-manrope italic"
           )}
         >
-          {initialData.price ? formatPrice(initialData.price) : "No price"}
+          {initialData.price ? formatPrice(initialData.price) : "Pas de prix"}
         </p>
       )}
       {isEditing && (
@@ -97,7 +97,9 @@ export const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
                       type="number"
                       step="0.01"
                       disabled={isSubmitting}
-                      placeholder="Set a price"
+                      variant={"third"}
+                      placeholder="Fixer un prix"
+                      min={"1"}
                       {...field}
                     />
                   </FormControl>
@@ -107,7 +109,7 @@ export const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
             />
             <div className="flex items-center gap-x-2">
               <Button type="submit" disabled={!isValid || isSubmitting}>
-                Save
+                Enregistrer
               </Button>
             </div>
           </form>

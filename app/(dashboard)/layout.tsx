@@ -12,9 +12,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           <Navbar />
         </div>
         <main className=" pr-[10px]  md:pl-[274px] pt-[100px] h-full  ">
-          <div className="h-[86vh] overflow-scroll scrollbar-hidden">
-            {children}
-          </div>
+          <div className="h-[86vh]">{children}</div>
         </main>
       </div>
     </div>

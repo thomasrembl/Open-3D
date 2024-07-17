@@ -49,8 +49,6 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     },
   });
 
-  console.log(categories);
-
   if (!course) {
     return redirect("/");
   }
@@ -70,17 +68,30 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
   const completionText = `(${completedFields}/${totalFields})`;
 
   const isCompleted = requiredFields.every(Boolean);
+  let divHeight = "86vh";
+  if (!course.isPublished) {
+    divHeight = "78.5vh";
+  }
 
   return (
-    <>
-      {!course.isPublished && <Banner label="Your course is not published" />}
+    <div className=" relative ">
+      {!course.isPublished && (
+        <>
+          <Banner label="Votre cours n'est pas publié" />
+        </>
+      )}
 
-      <div className="p-6">
-        <div className="flex items-center justify-between">
+      <div
+        style={{ height: divHeight }}
+        className="p-6  overflow-scroll scrollbar-hidden"
+      >
+        <div className="flex items-center justify-between ">
           <div className="flex flex-col gap-y-2">
-            <h1 className="text-2xl font-medium">Course setup</h1>
-            <span className="text-sm text-slate-700">
-              Complete all fields {completionText}
+            <h1 className="text-2xl font-semibold font-poppins text-cod-gray-950">
+              Paramètre du Cours
+            </h1>
+            <span className="text-sm font-manrope text-cod-gray-950">
+              Complétez tout les champs {completionText}
             </span>
           </div>
           <Actions
@@ -92,8 +103,10 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
           <div>
             <div className=" flex items-center gap-x-2">
-              <IconBadge icon={LayoutDashboard} />
-              <h2 className="text-xl">Customize your course</h2>
+              <IconBadge variant={"edit"} icon={LayoutDashboard} />
+              <h2 className="text-lg font-poppins font-[400] text-cod-gray-950">
+                Customisez votre Cours
+              </h2>
             </div>
             <TitleForm initialData={course} courseId={course.id} />
             <DescriptionForm initialData={course} courseId={course.id} />
@@ -110,29 +123,35 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
           <div className="space-y-6">
             <div>
               <div className="flex items-center gap-x-2">
-                <IconBadge icon={ListChecks} />
-                <h2 className="text-xl">Course chapter</h2>
+                <IconBadge variant={"edit"} icon={ListChecks} />
+                <h2 className="text-lg font-poppins font-[400] text-cod-gray-950">
+                  Chapitre de votre Cours
+                </h2>
               </div>
               <ChapterForm initialData={course} courseId={course.id} />
             </div>
             <div>
               <div className="flex items-center gap-x-2">
-                <IconBadge icon={CircleDollarSign} />
-                <h2 className="text-xl">Sell your course </h2>
+                <IconBadge variant={"edit"} icon={CircleDollarSign} />
+                <h2 className="ttext-lg font-poppins font-[400] text-cod-gray-950">
+                  Vendez votre Cours
+                </h2>
               </div>
               <PriceForm initialData={course} courseId={course.id} />
             </div>
             <div>
               <div className="flex items-center gap-x-2">
-                <IconBadge icon={File} />
-                <h2 className="text-xl">Ressources & Attachments </h2>
+                <IconBadge variant={"edit"} icon={File} />
+                <h2 className="text-lg font-poppins font-[400] text-cod-gray-950">
+                  Ressources
+                </h2>
               </div>
               <AttachmentForm initialData={course} courseId={course.id} />
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

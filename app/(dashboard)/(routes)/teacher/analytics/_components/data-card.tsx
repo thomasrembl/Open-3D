@@ -11,11 +11,17 @@ const DataCard = ({ value, label, shouldFormat }: DataCardProps) => {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">{label}</CardTitle>
+        <CardTitle>
+          <h2 className="text-sm text-cod-gray-950 font-normal font-manrope">
+            {label}
+          </h2>
+        </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">
-          {shouldFormat ? formatPrice(value) : value}
+        <div>
+          <p className="text-2xl font-manrope font-bold">
+            {shouldFormat ? formatPrice(value) : value}
+          </p>
         </div>
       </CardContent>
     </Card>

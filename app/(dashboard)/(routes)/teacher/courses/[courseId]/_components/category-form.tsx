@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Textarea } from "@/components/ui/textarea";
 import { Combobox } from "@/components/ui/combobox";
 
 interface CategoryFormProps {
@@ -55,11 +54,11 @@ export const CategoryForm = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("Course updated");
+      toast.success("Cours mis à jour");
       toggleEdit();
       router.refresh();
     } catch {
-      toast.error("Something went wrong");
+      toast.error("Une erreur s'est produite");
     }
   };
 
@@ -68,16 +67,16 @@ export const CategoryForm = ({
   );
 
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="mt-6  bg-white rounded-md p-4">
       <div className="font-medium flex items-center justify-between">
-        Course category
+        <p className="font-poppins font-normal">Catégorie du cours</p>
         <Button onClick={toggleEdit} variant="ghost">
           {isEditing ? (
-            <>Cancel</>
+            <p className="font-manrope font-normal">Annuler</p>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit category
+              <p className="font-manrope font-normal">Modifier la catégorie</p>
             </>
           )}
         </Button>
@@ -86,10 +85,10 @@ export const CategoryForm = ({
         <p
           className={cn(
             "text-sm mt-2",
-            !initialData.categoryId && "text-slate-500 italic"
+            !initialData.categoryId && "text-white-500 italic font-manrope "
           )}
         >
-          {selectedOption?.label || "No category"}
+          {selectedOption?.label || "Pas de catégorie"}
         </p>
       )}
       {isEditing && (
@@ -116,7 +115,7 @@ export const CategoryForm = ({
             />
             <div className="flex items-center gap-x-2">
               <Button disabled={!isValid || isSubmitting} type="submit">
-                Save
+                Enregistrer
               </Button>
             </div>
           </form>

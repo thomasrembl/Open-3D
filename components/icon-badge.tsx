@@ -8,6 +8,7 @@ const backroundVariants = cva("rounded-full flex items-center justify-center", {
     variant: {
       default: "bg-blue-ribbon-200",
       success: "bg-emerald-100",
+      edit: "bg-blue-ribbon-200",
     },
     size: {
       default: "p-2",
@@ -25,6 +26,7 @@ const iconVariant = cva("", {
     variant: {
       default: "text-blue-ribbon-950",
       success: "text-emerald-700",
+      edit: "text-blue-ribbon-500",
     },
     size: {
       default: "h-8 w-8",
