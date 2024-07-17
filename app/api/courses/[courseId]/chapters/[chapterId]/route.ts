@@ -1,7 +1,7 @@
-import { auth } from "@clerk/nextjs";
+import { auth } from '@clerk/nextjs/server';
 import { NextResponse } from "next/server";
 import Mux from "@mux/mux-node";
-import { isTeacher } from "@/lib/teacher";
+
 import { db } from "@/lib/db";
 
 const {video } = new Mux({
@@ -15,7 +15,7 @@ export async function DELETE(
 ) {
     try {
         const {userId} = auth()
-        if (!userId || !isTeacher(userId)) {
+        if (!userId ) {
             return new NextResponse("Unauthorized",{ status: 401 })
         }
 

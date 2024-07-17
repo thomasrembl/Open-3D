@@ -1,13 +1,11 @@
 "use client";
 
-import { UserButton, useAuth } from "@clerk/nextjs";
+import { Protect, UserButton, useAuth } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
+import { LogOut, UserCog2Icon } from "lucide-react";
 import Link from "next/link";
 import { SearchInput } from "./search-input";
-import { isTeacher } from "@/lib/teacher";
-import { use } from "react";
 
 export const NavbarRoutes = () => {
   const { userId } = useAuth();
@@ -16,6 +14,7 @@ export const NavbarRoutes = () => {
   const isTeacherPage = pathname?.startsWith("/teacher");
   const isPlayerPage = pathname?.startsWith("/courses");
   const isSearchPage = pathname?.startsWith("/search");
+
   return (
     <>
       {isSearchPage && (
@@ -31,13 +30,25 @@ export const NavbarRoutes = () => {
               <p>Quitter</p>
             </Button>
           </Link>
-        ) : isTeacher(userId) ? (
-          <Link href="/teacher/courses">
-            <Button size="sm" variant="ghost">
-              <p>Espace Professeur</p>
-            </Button>
-          </Link>
         ) : null}
+        {isTeacherPage ? (
+          <Protect role="org:admin">
+            <Link href="/manage">
+              <Button size="sm" variant="ghost">
+                <UserCog2Icon className="h-4 w-4 mr-2" />
+                <p>Rôles</p>
+              </Button>
+            </Link>
+          </Protect>
+        ) : (
+          <Protect role="org:admin">
+            <Link href="/teacher/courses">
+              <Button size="sm" variant="ghost">
+                <p>Espace Prof</p>
+              </Button>
+            </Link>
+          </Protect>
+        )}
         <UserButton afterSignOutUrl={"/"} />
         {!userId && (
           <div className="flex flex-row gap-2">

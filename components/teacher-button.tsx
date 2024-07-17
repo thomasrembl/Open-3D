@@ -1,6 +1,5 @@
 "use strict";
 
-import { isTeacher } from "@/lib/teacher";
 import { auth, useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 
