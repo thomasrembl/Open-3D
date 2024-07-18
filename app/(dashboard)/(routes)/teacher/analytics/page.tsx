@@ -7,7 +7,7 @@ import SaleChart from "./_components/sale-chart";
 const analyticsPage = async () => {
   const userId = auth().userId;
   if (!userId) {
-    return redirect("/login");
+    return redirect("/");
   }
 
   const { data, totalRevenue, totalSale, dataSale } = await getAnalytics(
