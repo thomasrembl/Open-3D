@@ -49,10 +49,10 @@ export const NavbarRoutes = () => {
             </Link>
           </Protect>
         )}
-        <UserButton afterSignOutUrl={"/"} />
+        <UserButton />
         {!userId && (
           <div className="flex flex-row gap-2">
-            <Link href="/sign-in">
+            <Link href="/sign-in" className="hidden md:block">
               <Button size="sm" variant="outline">
                 <p>Me connecter</p>
               </Button>

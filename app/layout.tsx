@@ -5,7 +5,6 @@ import { Manrope } from "next/font/google";
 import { Poppins } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastProvider } from "@/components/provider/toaster.provider";
-import { useEffect } from "react";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -26,12 +25,24 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  useEffect(() => {
-    console.log("RootLayout has mounted");
-  }, []);
-
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      afterSignOutUrl={"/"}
+      appearance={{
+        variables: {
+          colorTextSecondary: "#454545",
+          colorTextOnPrimaryBackground: "#ffffff",
+          colorPrimary: "#3657FF",
+          colorBackground: "#D9E2FF",
+          colorInputBackground: "#FFFFFF",
+          colorText: "#121212",
+          colorWarning: "#F5B40B",
+          colorDanger: "#DC2626",
+          colorNeutral: "#121212",
+          colorInputText: "#121212",
+        },
+      }}
+    >
       <html lang="fr">
         <body
           className={`${manrope.className} ${poppins.className} bg-blue-ribbon-50`}

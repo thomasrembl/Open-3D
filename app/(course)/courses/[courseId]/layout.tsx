@@ -15,7 +15,39 @@ const CourseLayout = async ({
 }) => {
   const { userId } = auth();
   if (!userId) {
-    return redirect("/login");
+    const course = await db.course.findUnique({
+      where: {
+        id: params.courseId,
+      },
+      include: {
+        chapters: {
+          where: {
+            isPublished: true,
+          },
+          orderBy: {
+            position: "asc",
+          },
+        },
+      },
+    });
+    if (!course) {
+      return redirect("/");
+    }
+    return (
+      <div className="h-full">
+        <div className="fixed top-[10px] left-[10px] hidden md:flex h-[97.5vh] min-w-[320px] w-[320px] flex-col  items-stretch  inset-y-0 z-51">
+          <CourseSidebar course={course} />
+        </div>
+        <div className="z-10">
+          <div className="z-50 h-[80px] md:r-[10px] left-[10px] md:left-0 md:pr-[10px]  pr-[20px] md:pl-[340px] fixed inset-y-[10px] w-full ">
+            <CourseNavbar course={course} />
+          </div>
+          <main className=" pr-[10px] pl-[10px]   md:pl-[340px] pt-[100px] h-full ">
+            {children}
+          </main>
+        </div>
+      </div>
+    );
   }
 
   const course = await db.course.findUnique({
@@ -56,7 +88,7 @@ const CourseLayout = async ({
         <div className="z-50 h-[80px] md:r-[10px] left-[10px] md:left-0 md:pr-[10px]  pr-[20px] md:pl-[340px] fixed inset-y-[10px] w-full ">
           <CourseNavbar course={course} progressCount={progressCount} />
         </div>
-        <main className=" pr-[10px]  md:pl-[340px] pt-[100px] h-full ">
+        <main className=" pr-[10px] pl-[10px]  md:pl-[340px] pt-[100px] h-full ">
           {children}
         </main>
       </div>

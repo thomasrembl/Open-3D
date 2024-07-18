@@ -3,10 +3,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 interface VideoPlayerProps {
   url: string | null;
   isLocked: boolean;
-  onComplete: boolean | undefined;
 }
 
-const VideoPlayer = ({ url, isLocked, onComplete }: VideoPlayerProps) => {
+const VideoPlayer = ({ url, isLocked }: VideoPlayerProps) => {
   const ytUrl = url ? `https://www.youtube.com/embed/${url}` : "";
   return (
     <div className="aspect-video">
