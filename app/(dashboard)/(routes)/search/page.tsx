@@ -16,7 +16,7 @@ interface SerchpageProps {
 
 const Serchpage = async ({ searchParams }: SerchpageProps) => {
   const { userId } = auth();
-
+console.log("userId", auth());
   const categories = await db.category.findMany({
     orderBy: {
       name: "asc",
@@ -42,7 +42,7 @@ const Serchpage = async ({ searchParams }: SerchpageProps) => {
     userId,
     ...searchParams,
   });
-console.log("userId", userId);
+
   return (
     <div className="">
       <div className=" space-y-4 pt-4 h-[86vh] overflow-scroll md:ml-0 ml-[10px] scrollbar-hidden">
