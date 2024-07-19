@@ -3,6 +3,7 @@ import { CoursesList } from "@/components/courses-list";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { HomeList } from "./_components/home-list";
 
 interface HomeProps {
   searchParams: {
@@ -38,7 +39,7 @@ const Home = async ({ searchParams }: HomeProps) => {
             Nos derniers cours
           </h2>
           <div>
-            <CoursesList items={homeCours} />
+            <HomeList items={homeCours} />
           </div>
         </div>
       </div>
