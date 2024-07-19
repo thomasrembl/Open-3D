@@ -10,8 +10,8 @@ const isProtectedRoute = createRouteMatcher([
   '/api/course(.*)',
 ]);
 const isAdminRoute = createRouteMatcher([
-  //'/teacher/courses(.*)',
-  //'/manage(.*)',
+  '/teacher/courses(.*)',
+  '/manage(.*)',
 ]);
 
 export default clerkMiddleware((auth, req) => {
