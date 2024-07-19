@@ -41,8 +41,9 @@ export const getAllCourses = async ({ categoryId, title }: GetCourses): Promise<
         const allCourses: CourseWithoutProgressWithCategory[] = courses.map((course) => ({
             ...course,
             chapters: course.chapters, // Correction ici pour utiliser `chapters` au lieu de `chapter`
-            progress: null, // Ajout de la propriété progress si nécessaire
+            progress: null, 
         }));
+
 
         return allCourses;
         

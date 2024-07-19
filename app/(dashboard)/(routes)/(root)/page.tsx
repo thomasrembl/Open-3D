@@ -1,9 +1,9 @@
 import { getAllCourses } from "@/actions/get-all-courses";
 import { CoursesList } from "@/components/courses-list";
+import { GuestCourseList } from "@/components/guest-course-list";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { HomeList } from "./_components/home-list";
 
 interface HomeProps {
   searchParams: {
@@ -39,7 +39,7 @@ const Home = async ({ searchParams }: HomeProps) => {
             Nos derniers cours
           </h2>
           <div>
-            <HomeList items={homeCours} />
+            <GuestCourseList items={homeCours} />
           </div>
         </div>
       </div>
