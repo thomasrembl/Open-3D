@@ -57,7 +57,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
     course.title,
     course.description,
     course.imageUrl,
-    course.price,
+    course.price || course.isFree,
     course.categoryId,
     course.chapters.some((chapter) => chapter.isPublished),
   ];
@@ -130,15 +130,17 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
               </div>
               <ChapterForm initialData={course} courseId={course.id} />
             </div>
-            <div>
-              <div className="flex items-center gap-x-2">
-                <IconBadge variant={"edit"} icon={CircleDollarSign} />
-                <h2 className="ttext-lg font-poppins font-[400] text-cod-gray-950">
-                  Vendez votre Cours
-                </h2>
+            {!course.isFree && (
+              <div>
+                <div className="flex items-center gap-x-2">
+                  <IconBadge variant={"edit"} icon={CircleDollarSign} />
+                  <h2 className="ttext-lg font-poppins font-[400] text-cod-gray-950">
+                    Vendez votre Cours
+                  </h2>
+                </div>
+                <PriceForm initialData={course} courseId={course.id} />
               </div>
-              <PriceForm initialData={course} courseId={course.id} />
-            </div>
+            )}
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge variant={"edit"} icon={File} />

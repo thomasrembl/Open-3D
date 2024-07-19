@@ -10,23 +10,27 @@ export async function POST (
     {params}: {params: {courseId: string}}
 ) {
     try {
-        console.log('[COURSE_ID_CHECKOUT] Request received');
 
         const user = await currentUser();
-        console.log('[COURSE_ID_CHECKOUT] User:', user);
 
         if (!user || !user.id || !user.emailAddresses?.[0]?.emailAddress) {
-            console.log('[COURSE_ID_CHECKOUT] User not found or invalid');
+
             return new NextResponse("Unauthorized", {status: 401});
         }
 
         const course = await db.course.findUnique({
             where:{
                 id: params.courseId,
-                isPublished: true
+                isPublished: true,
+                isFree: true || false
             }
         });
-        console.log('[COURSE_ID_CHECKOUT] Course:', course);
+
+        if (course?.isFree){
+            console.log('[COURSE_ID_CHECKOUT] Course is free');
+            return new NextResponse("Course is free", {status: 400});
+        }
+
 
         if (!course) {
             console.log('[COURSE_ID_CHECKOUT] Course not found');

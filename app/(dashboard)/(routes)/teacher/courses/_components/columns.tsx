@@ -12,8 +12,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
-import { parse } from "path";
 export const columns: ColumnDef<Course>[] = [
   {
     accessorKey: "title",

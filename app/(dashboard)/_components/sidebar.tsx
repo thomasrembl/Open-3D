@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Logo } from "./logo";
 import { SiderbarRoutes } from "./sidebar-routes";
 import { Footer } from "./footer";

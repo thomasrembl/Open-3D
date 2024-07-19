@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Pencil, PlusCircle, Video } from "lucide-react";
 import { useState } from "react";
-import { Chapter, MuxData } from "@prisma/client";
+import { Chapter } from "@prisma/client";
 
 import {
   Form,
@@ -21,7 +21,7 @@ import {
   FormField,
 } from "@/components/ui/form";
 interface ChapterVideoFormProps {
-  initialData: Chapter & { muxData?: MuxData | null };
+  initialData: Chapter;
 
   courseId: string;
   chapterId: string;

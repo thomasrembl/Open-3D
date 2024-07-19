@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { ComponentType, SVGProps, use } from "react";
+import { ComponentType, SVGProps } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 type IconType = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;

@@ -44,8 +44,10 @@ export const getAnalytics = async (userId: string) => {
                 }
             },
             include: {
-                course: true
-            }
+
+                course : true
+            },
+            
         });
 
     
