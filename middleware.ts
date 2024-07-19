@@ -19,8 +19,7 @@ export default clerkMiddleware((auth, req) => {
   if (isAdminRoute(req)) {
     auth().protect(has => {
       return (
-        has({ role: 'org:admin' }) ||
-        has({ permission: 'org:sys_domains_manage' })
+        has({ role: 'org:admin' }) 
       )
     });
   }
