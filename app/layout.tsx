@@ -3,7 +3,7 @@ import { Manrope } from "next/font/google";
 import { Poppins } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastProvider } from "@/components/provider/toaster.provider";
-
+import { Analytics } from "@vercel/analytics/react";
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -87,6 +87,7 @@ export default function RootLayout({
           {children}
         </body>
       </html>
+      <Analytics />
     </ClerkProvider>
   );
 }
