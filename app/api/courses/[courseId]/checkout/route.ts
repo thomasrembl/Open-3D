@@ -22,7 +22,6 @@ export async function POST (
             where:{
                 id: params.courseId,
                 isPublished: true,
-                isFree: true || false
             }
         });
 
