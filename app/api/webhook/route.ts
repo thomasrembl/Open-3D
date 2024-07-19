@@ -5,7 +5,12 @@ import { NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import { db } from "@/lib/db";
 
-// Your POST route handler
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
 export async function POST(req: Request) {
   const body = await req.text();
   const headersList = headers();
@@ -44,10 +49,3 @@ export async function POST(req: Request) {
 
   return new NextResponse(null, { status: 200 });
 }
-
-// Configuration for the POST route
-export const POSTConfig = {
-  api: {
-    bodyParser: false,
-  },
-};
