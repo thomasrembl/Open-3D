@@ -5,6 +5,7 @@ import { getCourses } from "@/actions/get-courses";
 import { auth } from "@clerk/nextjs/server";
 import { CoursesList } from "@/components/courses-list";
 import { getAllCourses } from "@/actions/get-all-courses";
+import { GuestCourseList } from "@/components/guest-course-list";
 
 interface SerchpageProps {
   searchParams: {
@@ -31,7 +32,7 @@ const Serchpage = async ({ searchParams }: SerchpageProps) => {
             <SearchInput />
           </div>
           <Categories items={categories} />
-          <CoursesList items={allCourses} />
+          <GuestCourseList items={allCourses} />
         </div>
       </div>
     );
