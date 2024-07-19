@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { CoursesList } from "@/components/courses-list";
-import { Button } from "@/components/ui/button";
 import InfoCard from "./info-card";
 import { CheckCircle2, Clock } from "lucide-react";
 

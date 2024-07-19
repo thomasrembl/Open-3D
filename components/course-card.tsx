@@ -13,6 +13,7 @@ interface CourseCardProps {
   price: number;
   progress: number | null;
   category: string;
+  isFree: boolean;
 }
 
 export const CourseCard = ({
@@ -23,6 +24,7 @@ export const CourseCard = ({
   price,
   progress,
   category,
+  isFree,
 }: CourseCardProps) => {
   return (
     <Link href={`/courses/${id}`}>
@@ -50,8 +52,12 @@ export const CourseCard = ({
               variant={progress === 100 ? "success" : "default"}
               value={progress}
             />
+          ) : isFree ? (
+            <p className="text-md md:text-sm font-manrope text-blue-ribbon-950">
+              Gratuit
+            </p>
           ) : (
-            <p className="text-md md:text-sm font-manrope  text-blue-ribbon-950">
+            <p className="text-md md:text-sm font-manrope text-blue-ribbon-950">
               {formatPrice(price)}
             </p>
           )}

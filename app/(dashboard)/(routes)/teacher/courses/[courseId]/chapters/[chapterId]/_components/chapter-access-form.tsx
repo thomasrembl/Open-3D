@@ -51,6 +51,10 @@ export const ChapterAccessForm = ({
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+      await axios.patch(`/api/courses/${courseId}/unpublish`);
+      await axios.patch(
+        `/api/courses/${courseId}/chapters/${chapterId}/unpublish`
+      );
       await axios.patch(
         `/api/courses/${courseId}/chapters/${chapterId}`,
         values

@@ -1,6 +1,5 @@
 import { db } from "@/lib/db";
 import { Attachment, Chapter } from "@prisma/client";
-import next from "next";
 
 interface GetChapterPropos {
     userId: string;
@@ -31,6 +30,7 @@ export const getChapter = async ({
             },
             select: {
                 price: true,
+                isFree: true || false
             }
         })
 

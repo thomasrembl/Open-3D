@@ -10,10 +10,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { File } from "lucide-react";
 import CourseProgressButton from "./_components/course-progress-button";
 import { getAllChapters } from "@/actions/get-all-chapters";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { formatPrice } from "@/lib/format";
-import { useRouter } from "next/router";
 import CourseLogButton from "./_components/course-log-button";
 
 const ChapterIdPage = async ({
@@ -193,6 +189,7 @@ const ChapterIdPage = async ({
               <CourseEnrollButton
                 courseId={params.courseId}
                 price={course.price}
+                isFree={course.isFree}
               />
             )}
           </div>

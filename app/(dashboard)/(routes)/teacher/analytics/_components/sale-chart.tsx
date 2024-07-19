@@ -38,6 +38,7 @@ const SaleChart = ({ data, type }: SaleChartProps) => {
     name: item.name,
     value: item.total,
   }));
+  const filteredChartData = chartData.filter((item) => item.value !== 0);
 
   const chartConfigBar = {
     value: {
@@ -109,7 +110,7 @@ const SaleChart = ({ data, type }: SaleChartProps) => {
               <ChartContainer config={chartConfigBar}>
                 <BarChart
                   accessibilityLayer
-                  data={chartData}
+                  data={filteredChartData}
                   margin={{
                     top: 20,
                   }}

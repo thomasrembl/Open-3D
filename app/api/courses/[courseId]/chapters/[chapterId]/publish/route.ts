@@ -35,6 +35,8 @@ export async function PATCH(
         if (!chapter || !chapter.title || !chapter.description) {
             return new NextResponse("Missing required filds", { status: 400 })
         }
+
+        
         const publishedChapter = await db.chapter.update({
             where: {
                 id: params.chapterId,
@@ -44,6 +46,43 @@ export async function PATCH(
                 isPublished: true
             }
         });
+        
+
+            const allChapter = await db.chapter.findMany({
+                where: {
+                    courseId: params.courseId,
+                    isPublished: true,
+                }
+            });
+            const freeChapter = await db.chapter.findMany({
+                where: {
+                    courseId: params.courseId,
+                    isFree: true ,
+                    isPublished: true,
+                }
+            });
+
+            if (freeChapter.length === allChapter.length) {
+                 await db.course.update({
+                    where: {
+                        id: params.courseId
+                    },
+                    data: {
+                        isFree: true
+                    }
+                })
+            } else {
+                await db.course.update({
+                    where: {
+                        id: params.courseId
+                    },
+                    data: {
+                        isFree: false
+                    }
+                })
+            }
+
+
 
         return  NextResponse.json(publishedChapter)
     } catch (error) {

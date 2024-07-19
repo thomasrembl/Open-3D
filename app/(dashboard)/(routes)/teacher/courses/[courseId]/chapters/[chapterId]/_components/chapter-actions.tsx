@@ -3,7 +3,6 @@
 import { ConfirmModal } from "@/components/modal/confirm-modal";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
-import { on } from "events";
 import { Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -43,10 +42,10 @@ export const ChapterActions = ({
     try {
       setIsLoaded(true);
       if (isPublished) {
+        await axios.patch(`/api/courses/${courseId}/unpublish`);
         await axios.patch(
           `/api/courses/${courseId}/chapters/${chapterId}/unpublish`
         );
-        await axios.patch(`/api/courses/${courseId}/unpublish`);
         toast.success("Chapitre dépublié");
       } else {
         await axios.patch(

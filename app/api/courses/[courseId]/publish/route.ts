@@ -17,8 +17,8 @@ export async function PATCH(req: Request, {params}: {params: {courseId: string}}
             }, 
             include:{
                 chapters:{
-                    include:{
-                        muxData: true
+                    where:{
+                        isPublished: true
                     }
                 }
             }
@@ -32,6 +32,19 @@ export async function PATCH(req: Request, {params}: {params: {courseId: string}}
 
         if (!course.title || !course.description || !course.imageUrl || !course.categoryId  || !hasPublishedChapter) {
             return new NextResponse("Missing required Field", { status: 401 });
+        }
+
+        if (course.isFree){
+            await db.course.update({
+                where: {
+                    id: params.courseId,
+                    userId,
+                },
+                data: {
+                    price: 0,
+                }
+            });
+
         }
 
         const publishedCourse = await db.course.update({

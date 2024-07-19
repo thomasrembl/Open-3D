@@ -1,9 +1,6 @@
 import { getDashboardCourses } from "@/actions/get-dashboard-courses";
-import { CoursesList } from "@/components/courses-list";
 import { auth } from "@clerk/nextjs/server";
-import { CheckCircle2, Clock } from "lucide-react";
 import { redirect } from "next/navigation";
-import InfoCard from "./_components/info-card";
 import Filter from "./_components/filter";
 
 const DashboardPage = async () => {

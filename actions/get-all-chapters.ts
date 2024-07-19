@@ -21,6 +21,7 @@ export const getAllChapters = async ({
             },
             select: {
                 price: true,
+                isFree: true || false
             }
         })
 
