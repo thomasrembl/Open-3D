@@ -1,5 +1,4 @@
 import { auth } from "@clerk/nextjs/server";
-
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import { getProgress } from "@/actions/get-progress";
@@ -14,8 +13,11 @@ const CourseLayout = async ({
   params: { courseId: string };
 }) => {
   const { userId } = auth();
+
+  let course;
+
   if (!userId) {
-    const course = await db.course.findUnique({
+    course = await db.course.findUnique({
       where: {
         id: params.courseId,
       },
@@ -24,23 +26,28 @@ const CourseLayout = async ({
           where: {
             isPublished: true,
           },
+          include: {
+            userProgress: true,
+          },
           orderBy: {
             position: "asc",
           },
         },
       },
     });
+
     if (!course) {
       return redirect("/");
     }
+
     return (
       <div className="h-full">
         <div className="fixed top-[10px] left-[10px] hidden md:flex h-[97.5vh] min-w-[320px] w-[320px] flex-col  items-stretch  inset-y-0 z-51">
-          <CourseSidebar course={course} />
+          <CourseSidebar course={course} progressCount={0} />
         </div>
         <div className="z-10">
           <div className="z-50 h-[80px] md:r-[10px] left-[10px] md:left-0 md:pr-[10px]  pr-[20px] md:pl-[340px] fixed inset-y-[10px] w-full ">
-            <CourseNavbar course={course} />
+            <CourseNavbar course={course} progressCount={0} />
           </div>
           <main className=" pr-[10px] pl-[10px]   md:pl-[340px] pt-[100px] h-full ">
             {children}
@@ -50,7 +57,7 @@ const CourseLayout = async ({
     );
   }
 
-  const course = await db.course.findUnique({
+  course = await db.course.findUnique({
     where: {
       id: params.courseId,
     },
