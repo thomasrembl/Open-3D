@@ -16,7 +16,6 @@ interface SerchpageProps {
 
 const Serchpage = async ({ searchParams }: SerchpageProps) => {
   const { userId } = auth();
-  console.log("userId", auth());
   const categories = await db.category.findMany({
     orderBy: {
       name: "asc",
