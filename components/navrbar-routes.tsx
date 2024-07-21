@@ -15,7 +15,7 @@ import { SearchInput } from "./search-input";
 export const NavbarRoutes = () => {
   const { userId } = useAuth();
   const pathname = usePathname();
-  const isHomepage = pathname === "/";
+  const isDashboardPage = pathname?.startsWith("/dashboard");
   const isTeacherPage = pathname?.startsWith("/teacher");
   const isPlayerPage = pathname?.startsWith("/courses");
   const isSearchPage = pathname?.startsWith("/search");
@@ -36,16 +36,7 @@ export const NavbarRoutes = () => {
             </Button>
           </Link>
         ) : null}
-        {isTeacherPage ? (
-          <Protect role="org:admin">
-            <Link href="/manage">
-              <Button size="sm" variant="ghost">
-                <UserCog2Icon className="h-4 w-4 mr-2" />
-                <p>Rôles</p>
-              </Button>
-            </Link>
-          </Protect>
-        ) : (
+        {!isTeacherPage && (
           <Protect role="org:admin">
             <Link href="/teacher/courses">
               <Button size="sm" variant="ghost">
@@ -54,7 +45,7 @@ export const NavbarRoutes = () => {
             </Link>
           </Protect>
         )}
-        {isHomepage && <OrganizationSwitcher />}
+        {isDashboardPage && <OrganizationSwitcher />}
         <UserButton />
         {!userId && (
           <div className="flex flex-row gap-2">
