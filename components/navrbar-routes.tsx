@@ -1,6 +1,11 @@
 "use client";
 
-import { Protect, UserButton, useAuth } from "@clerk/nextjs";
+import {
+  OrganizationSwitcher,
+  Protect,
+  UserButton,
+  useAuth,
+} from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { LogOut, UserCog2Icon } from "lucide-react";
@@ -10,7 +15,7 @@ import { SearchInput } from "./search-input";
 export const NavbarRoutes = () => {
   const { userId } = useAuth();
   const pathname = usePathname();
-
+  const isHomepage = pathname === "/";
   const isTeacherPage = pathname?.startsWith("/teacher");
   const isPlayerPage = pathname?.startsWith("/courses");
   const isSearchPage = pathname?.startsWith("/search");
@@ -49,6 +54,7 @@ export const NavbarRoutes = () => {
             </Link>
           </Protect>
         )}
+        {isHomepage && <OrganizationSwitcher />}
         <UserButton />
         {!userId && (
           <div className="flex flex-row gap-2">
