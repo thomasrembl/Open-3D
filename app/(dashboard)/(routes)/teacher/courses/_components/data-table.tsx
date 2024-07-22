@@ -54,7 +54,7 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className="h-[82vh] overflow-scroll scrollbar-hidden">
+    <div className="h-[82vh]  scrollbar-hidden">
       <div className="flex items-center py-4 justify-between">
         <Input
           variant={"secondary"}
@@ -63,7 +63,7 @@ export function DataTable<TData, TValue>({
           onChange={(event) =>
             table.getColumn("title")?.setFilterValue(event.target.value)
           }
-          className="max-w-[150px] sm:max-w-sm"
+          className="max-w-[150px]"
         />
         <Link href="/teacher/create">
           <Button>

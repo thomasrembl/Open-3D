@@ -21,7 +21,7 @@ const DashboardPage = async () => {
   const completedLength = completedCourses.length;
 
   return (
-    <div className="p-6 h-[86vh] overflow-scroll md:ml-0 ml-[10px] scrollbar-hidden">
+    <div className="p-6 h-[86vh] overflow-scroll md:ml-0 ml-[10px] scrollbar-hidden pb-10">
       <Filter
         allCoursItems={allCoursItems}
         inProgressItems={inProgressItems}

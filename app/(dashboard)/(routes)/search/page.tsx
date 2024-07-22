@@ -25,14 +25,12 @@ const Serchpage = async ({ searchParams }: SerchpageProps) => {
   if (!userId) {
     const allCourses = await getAllCourses(searchParams);
     return (
-      <div className="">
-        <div className=" space-y-4 pt-4 h-[86vh] overflow-scroll md:ml-0 ml-[10px] scrollbar-hidden">
-          <div className="py-6 md:hidden md:mb-0 block ">
-            <SearchInput />
-          </div>
-          <Categories items={categories} />
-          <GuestCourseList items={allCourses} />
+      <div className=" space-y-4 pt-4 h-[86vh] overflow-scroll md:ml-0 ml-[10px] scrollbar-hidden pb-10">
+        <div className="py-6 md:hidden md:mb-0 block ">
+          <SearchInput />
         </div>
+        <Categories items={categories} />
+        <GuestCourseList items={allCourses} />
       </div>
     );
   }
@@ -43,14 +41,12 @@ const Serchpage = async ({ searchParams }: SerchpageProps) => {
   });
 
   return (
-    <div className="">
-      <div className=" space-y-4 pt-4 h-[86vh] overflow-scroll md:ml-0 ml-[10px] scrollbar-hidden">
-        <div className="py-6 md:hidden md:mb-0 block ">
-          <SearchInput />
-        </div>
-        <Categories items={categories} />
-        <CoursesList items={courses} />
+    <div className=" space-y-4 pt-4 h-[86vh] overflow-scroll md:ml-0 ml-[10px] scrollbar-hidden pb-10">
+      <div className="py-6 md:hidden md:mb-0 block ">
+        <SearchInput />
       </div>
+      <Categories items={categories} />
+      <CoursesList items={courses} />
     </div>
   );
 };

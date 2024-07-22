@@ -61,8 +61,8 @@ export default function RootLayout({
             content="Tuto blender, blender,cours 3D,cours 3D en ligne , tuto modélisation, tuto texture, Open 3D, 3D, animation 3D, texture 3D"
           />
           <meta property="og:url" content="https://www.liftdigital.fr" />
-          <meta property="og:image" content="/big-logo.png" />
-          <meta name="twitter:image" content="/logo2.png" />
+          <meta property="og:image" content="@/public/logo2.png" />
+          <meta name="twitter:image" content="@/public/logo2.png" />
           <meta name="twitter:card" content="summary_large_image" />
           <link rel="apple-touch-icon" href="/flavicon.ico" />
           <link rel="canonical" href="liftdigital.fr" />
