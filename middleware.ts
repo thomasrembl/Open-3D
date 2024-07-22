@@ -15,6 +15,7 @@ const isAdminRoute = createRouteMatcher([
 ]);
 
 export default clerkMiddleware((auth, req) => {
+  console.log("Role : ", auth())
   if (isProtectedRoute(req)) auth().protect();
   if (isAdminRoute(req)) {
     auth().protect(has => {
