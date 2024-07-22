@@ -81,10 +81,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
         </>
       )}
 
-      <div
-        style={{ height: divHeight }}
-        className="p-6  overflow-scroll scrollbar-hidden"
-      >
+      <div style={{ height: divHeight }} className="p-6   ">
         <div className="flex items-center justify-between ">
           <div className="flex flex-col gap-y-2">
             <h1 className="text-2xl font-semibold font-poppins text-cod-gray-950">
@@ -120,7 +117,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
               }))}
             />
           </div>
-          <div className="space-y-6">
+          <div className="space-y-6 pb-10">
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge variant={"edit"} icon={ListChecks} />

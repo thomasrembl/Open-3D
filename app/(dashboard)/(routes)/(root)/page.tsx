@@ -15,7 +15,7 @@ const Home = async ({ searchParams }: HomeProps) => {
   const allCourses = await getAllCourses(searchParams);
   const homeCours = allCourses.slice(0, 4);
   return (
-    <div className="overflow-scroll scrollbar-hidden w-full h-[85vh] ">
+    <div className="overflow-scroll scrollbar-hidden w-full h-[85vh] pb-10">
       <div className="flex flex-col gap-5 mt-5 md:pl-0] pl-[10px]">
         <h1 className="font-poppins text-[22px] md:text-5xl text-cod-gray-950 font-semibold">
           De nouvelles compétences à porté de bras

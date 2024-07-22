@@ -15,7 +15,7 @@ const analyticsPage = async () => {
   );
 
   return (
-    <div className="p-6 ">
+    <div className="p-6 overflow-scroll scrollbar-hidden pb-10 h-[84vh] ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <DataCard label="Ventes Totales" value={totalSale} />
         <DataCard label="Revenue Total" value={totalRevenue} shouldFormat />
