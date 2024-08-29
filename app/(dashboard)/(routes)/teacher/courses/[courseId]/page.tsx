@@ -81,7 +81,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
         </>
       )}
 
-      <div style={{ height: divHeight }} className="p-6   ">
+      <div style={{ height: divHeight  }} className="p-6 overflow-scroll">
         <div className="flex items-center justify-between ">
           <div className="flex flex-col gap-y-2">
             <h1 className="text-2xl font-semibold font-poppins text-cod-gray-950">
